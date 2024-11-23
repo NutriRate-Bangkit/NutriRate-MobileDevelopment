@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_splash">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/tv_app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="NutriRate"
+        android:fontFamily="@font/NunitoExtraBold"
+        android:lineSpacingExtra="10dp"
+        android:letterSpacing="0.1"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+
+    <!-- Subtitle Text -->
+    <TextView
+        android:id="@+id/tv_app_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_app_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/NunitoBlack"
+        android:lineSpacingExtra="10dp"
+        android:letterSpacing="0.1"
+        android:text="Food Grading App"
+        android:textSize="18sp"
+        android:textColor="#E6E6E6" />
+
+</RelativeLayout>
