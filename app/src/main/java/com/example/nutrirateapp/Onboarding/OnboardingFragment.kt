@@ -44,8 +44,7 @@ class OnboardingFragment : Fragment() {
         val description = arguments?.getString("description") ?: ""
         val isLast = arguments?.getBoolean("isLast") ?: false
 
-        // Tetap tampilkan judul NutriRate di bagian atas
-        binding.title.text = "NutriRate"
+
 
         // Set subtitle dan deskripsi sesuai slide
         binding.subtitle.text = subtitle

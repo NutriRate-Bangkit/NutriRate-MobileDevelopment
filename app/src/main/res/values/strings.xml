@@ -5,4 +5,7 @@
     <string name="judulbawah">Food Grading App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onboardingTitle">Grading Makanan dengan Mudah</string>
+    <string name="loremIpsum">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</string>
+    <string name="textStart">Let\'s Start!</string>
 </resources>

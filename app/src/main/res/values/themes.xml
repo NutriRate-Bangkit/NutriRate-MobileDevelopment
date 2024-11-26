@@ -4,6 +4,16 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+    
+    <style name="ButtonStart">
+        <item name="android:layout_width">168dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="ButtonStart.SecondaryVariant">
+        <item name="android:backgroundTint">@color/green_splash</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <style name="Theme.NutriRateApp" parent="Base.Theme.NutriRateApp" />
 </resources>
