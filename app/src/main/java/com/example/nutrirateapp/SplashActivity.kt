@@ -8,8 +8,7 @@ import android.os.Looper
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.nutrirateapp.Onboarding.OnboardingActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -20,14 +19,14 @@ class SplashActivity : AppCompatActivity() {
         // Animasi gerakan teks app_name
         val appName = findViewById<TextView>(R.id.app_name)
         val animator = ObjectAnimator.ofFloat(appName, "translationY", -500f, 0f)
-        animator.duration = 1500
+        animator.duration = 3000
         animator.interpolator = AccelerateDecelerateInterpolator()
         animator.start()
 
-        // Pindah ke MainActivity setelah animasi selesai
+        // Pindah ke OnboardingActivity setelah animasi selesai
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, OnboardingActivity::class.java))
             finish()
-        }, 2000) // Delay 2 detik
+        }, 3000) // Delay 2 detik
     }
 }
