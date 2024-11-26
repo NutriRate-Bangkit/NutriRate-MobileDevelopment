@@ -3,5 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green_splash">#91C788</color>
+    <color name="green_onboarding">#DCFAD7</color>
     <color name="abu">#B9B9B4</color>
+
 </resources>

@@ -16,7 +16,6 @@ class OnboardingActivity : AppCompatActivity() {
 
         val viewPager = findViewById<ViewPager2>(R.id.viewPager)
 
-        // Data untuk Onboarding
         val fragments = listOf(
             OnboardingFragment.newInstance(
                 R.drawable.nutri_onboarding1,
@@ -38,8 +37,7 @@ class OnboardingActivity : AppCompatActivity() {
             )
         )
 
-        // Set Adapter
         val adapter = OnboardingAdapter(this, fragments)
         viewPager.adapter = adapter
-    }
+   }
 }

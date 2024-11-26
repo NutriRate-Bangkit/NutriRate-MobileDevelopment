@@ -1,26 +1,24 @@
 package com.example.nutrirateapp.Onboarding
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.nutrirateapp.MainActivity
 import com.example.nutrirateapp.databinding.FragmentOnboardingBinding
 
 class OnboardingFragment : Fragment() {
 
-    // ViewBinding untuk Fragment
+    // ViewBinding untuk fragment
     private var _binding: FragmentOnboardingBinding? = null
     private val binding get() = _binding!!
 
     companion object {
-        fun newInstance(imageRes: Int, title: String, description: String, isLast: Boolean): OnboardingFragment {
+        fun newInstance(imageRes: Int, subtitle: String, description: String, isLast: Boolean): OnboardingFragment {
             val fragment = OnboardingFragment()
             val args = Bundle()
             args.putInt("imageRes", imageRes)
-            args.putString("title", title)
+            args.putString("subtitle", subtitle)
             args.putString("description", description)
             args.putBoolean("isLast", isLast)
             fragment.arguments = args
@@ -40,19 +38,26 @@ class OnboardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Ambil data dari arguments
         val imageRes = arguments?.getInt("imageRes") ?: 0
-        val title = arguments?.getString("title") ?: ""
+        val subtitle = arguments?.getString("subtitle") ?: ""
         val description = arguments?.getString("description") ?: ""
         val isLast = arguments?.getBoolean("isLast") ?: false
 
-        binding.image.setImageResource(imageRes)
-        binding.title.text = title
+        // Tetap tampilkan judul NutriRate di bagian atas
+        binding.title.text = "NutriRate"
+
+        // Set subtitle dan deskripsi sesuai slide
+        binding.subtitle.text = subtitle
         binding.description.text = description
 
+        // Set gambar
+        binding.image.setImageResource(imageRes)
+
+        // Tampilkan tombol "Let's Start!" hanya di slide terakhir
         binding.startButton.visibility = if (isLast) View.VISIBLE else View.GONE
         binding.startButton.setOnClickListener {
-
-            startActivity(Intent(requireContext(), MainActivity::class.java))
+            // Pindah ke MainActivity atau langkah berikutnya
             requireActivity().finish()
         }
     }

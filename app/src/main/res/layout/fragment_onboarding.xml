@@ -4,16 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_splash">
+    android:background="@color/green_onboarding">
 
-    <!-- Title -->
+    <!-- Title di atas -->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="NutriRate"
-        android:textColor="@android:color/white"
+        android:layout_marginTop="32dp"
+        android:text="@string/nutrirate"
+        android:letterSpacing="0.1"
+        android:textColor="@color/green_splash"
         android:textSize="32sp"
         android:fontFamily="@font/nunitoextrabold"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,27 +26,43 @@
         android:id="@+id/image"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Description -->
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/nunitoblack"
+        android:gravity="center"
+        android:text="Grading Makanan dengan Mudah"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image" />
+
     <TextView
         android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/white"
-        android:gravity="center"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/nunitoblack"
+        android:gravity="center"
+        android:text="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/subtitle" />
 
-    <!-- Button -->
     <Button
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
@@ -55,5 +72,7 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
