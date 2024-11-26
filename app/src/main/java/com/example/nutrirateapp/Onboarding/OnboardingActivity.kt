@@ -20,19 +20,19 @@ class OnboardingActivity : AppCompatActivity() {
             OnboardingFragment.newInstance(
                 R.drawable.nutri_onboarding1,
                 "Grading Makanan dengan Mudah",
-                "Lorem Ipsum Lorem Ipsum Lorem Ipsum",
+                "NutriRate membantu Anda menilai makanan berdasarkan Nutrition Facts. Temukan pilihan terbaik untuk pola makan sehat Anda.",
                 false
             ),
             OnboardingFragment.newInstance(
                 R.drawable.nutri_onboarding2,
-                "Scan Makanan Anda",
-                "Lorem Ipsum Lorem Ipsum Lorem Ipsum",
+                "Analisis Gizi Instan",
+                "Scan label Nutrition Facts dan dapatkan informasi yang mudah dipahami, lengkap dengan rekomendasi kesehatan.",
                 false
             ),
             OnboardingFragment.newInstance(
                 R.drawable.nutri_onboarding3,
-                "Nikmati Kemudahan",
-                "Lorem Ipsum Lorem Ipsum Lorem Ipsum",
+                "Personalisasi Gaya Hidup Sehat Anda",
+                "Sesuaikan kebutuhan nutrisi Anda dengan rekomendasi yang dipersonalisasi berdasarkan preferensi dan tujuan kesehatan Anda.",
                 true
             )
         )

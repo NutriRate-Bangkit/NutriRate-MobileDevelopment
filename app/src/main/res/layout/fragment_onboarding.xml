@@ -6,29 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/green_onboarding">
 
-    <!-- Title di atas -->
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/nutrirate"
-        android:letterSpacing="0.1"
-        android:textColor="@color/green_splash"
-        android:textSize="32sp"
-        android:fontFamily="@font/nunitoextrabold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <!-- Image -->
     <ImageView
         android:id="@+id/image"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="@string/app_name"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -36,10 +21,9 @@
         android:id="@+id/subtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
         android:fontFamily="@font/nunitoblack"
         android:gravity="center"
-        android:text="Grading Makanan dengan Mudah"
+        android:text="@string/onboardingTitle"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -53,22 +37,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/nunitoblack"
         android:gravity="center"
-        android:text="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:text="@string/loremIpsum"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/subtitle" />
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Let's Start!"
+        style="@style/ButtonStart.SecondaryVariant"
+        android:layout_marginTop="18dp"
+        android:text="@string/textStart"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/description"
         app:layout_constraintStart_toStartOf="parent"
