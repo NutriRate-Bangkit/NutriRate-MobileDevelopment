@@ -1,4 +1,4 @@
-package com.example.nutrirateapp.Onboarding
+package com.example.nutrirateapp.view.Onboarding
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

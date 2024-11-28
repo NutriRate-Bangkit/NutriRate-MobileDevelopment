@@ -1,4 +1,4 @@
-package com.example.nutrirateapp.Onboarding
+package com.example.nutrirateapp.view.Onboarding
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

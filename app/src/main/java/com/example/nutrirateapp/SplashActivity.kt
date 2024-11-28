@@ -8,7 +8,7 @@ import android.os.Looper
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nutrirateapp.Onboarding.OnboardingActivity
+import com.example.nutrirateapp.view.Onboarding.OnboardingActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -27,6 +27,6 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, OnboardingActivity::class.java))
             finish()
-        }, 3000) // Delay 2 detik
+        }, 3000)
     }
 }
