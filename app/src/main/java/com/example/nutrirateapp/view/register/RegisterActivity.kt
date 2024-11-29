@@ -7,15 +7,20 @@ import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.OptIn
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.core.ExperimentalGetImage
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.nutrirateapp.R
+import com.example.nutrirateapp.view.camera.CameraActivity
 import com.example.nutrirateapp.view.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
+    @OptIn(ExperimentalGetImage::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,6 +31,12 @@ class RegisterActivity : AppCompatActivity() {
         tvSudahPunyaAkun.setOnClickListener {
             // Direct to LoginActivity when "Sudah Punya Akun" is clicked
             val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        val registerButton = findViewById<Button>(R.id.registerButton)
+        registerButton.setOnClickListener {
+            val intent = Intent(this, CameraActivity::class.java)
             startActivity(intent)
         }
 

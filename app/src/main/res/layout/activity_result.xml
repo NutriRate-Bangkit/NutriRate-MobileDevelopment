@@ -1,0 +1,422 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCFAD7"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="16dp"
+        android:layout_margin="8dp"
+        android:elevation="4dp"
+        android:clipToPadding="false"
+        android:layout_gravity="center">
+
+        <!-- Header Title -->
+        <TextView
+            android:id="@+id/nutritionFactsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nutrition_facts"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"/>
+
+        <!-- Horizontal Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Product Name Label -->
+        <TextView
+            android:id="@+id/productNameLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/productNameLabel"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Product Name EditText -->
+        <EditText
+            android:id="@+id/productNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/masukkan_nama_produk"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:background="@null"
+            android:padding="8dp" />
+
+        <!-- Horizontal Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Protein Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/serving_size_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/servingEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:inputType="number"
+                android:hint="@string/masukan_jumlah"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:background="@null"
+                android:gravity="end" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/gram_label"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="center_vertical|end" />
+        </LinearLayout>
+
+        <!-- Horizontal Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#000000"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Protein Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/protein_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/proteinEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:inputType="number"
+                android:text="@string/value_100"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:background="@null"
+                android:gravity="end" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/gram_label"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="center_vertical|end" />
+        </LinearLayout>
+
+        <!-- Energy Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:weightSum="10"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/energi_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/energyEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:inputType="number"
+                android:text="@string/value_100"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:background="@null"
+                android:gravity="end" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/kkal_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical|end" />
+        </LinearLayout>
+
+        <!-- Fat Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:weightSum="10"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/fat_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/fatEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:inputType="number"
+                android:text="@string/value_100"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:background="@null"
+                android:gravity="end" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/gram_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical|end" />
+        </LinearLayout>
+
+        <!-- Saturated Fat Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:weightSum="10"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/saturated_fat_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/saturatedFatEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:inputType="number"
+                android:text="@string/value_100"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:background="@null"
+                android:gravity="end" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/gram_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical|end" />
+        </LinearLayout>
+
+        <!-- Sugar Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:weightSum="10"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/sugar_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/sugarEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:inputType="number"
+                android:text="@string/value_100"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:background="@null"
+                android:gravity="end" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/gram_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical|end" />
+        </LinearLayout>
+
+        <!-- Serat Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:weightSum="10"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/dietary_fiber_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/fiberEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:inputType="number"
+                android:text="@string/value_100"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:background="@null"
+                android:gravity="end" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/gram_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical|end" />
+        </LinearLayout>
+
+        <!-- Sugar Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/salt_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/sodiumEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:inputType="number"
+                android:text="@string/value_100"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:background="@null"
+                android:gravity="end" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/mg_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical|end" />
+        </LinearLayout>
+
+        <!-- Button -->
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/save"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#8BC34A" />
+    </LinearLayout>
+</ScrollView>

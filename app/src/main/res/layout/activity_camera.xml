@@ -1,0 +1,62 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Kamera Preview -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/cameraPreview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cameraControls" />
+
+    <!-- Kontrol Kamera -->
+    <LinearLayout
+        android:id="@+id/cameraControls"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Tombol Gallery -->
+        <ImageButton
+            android:id="@+id/galleryButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:contentDescription="@string/button_gallery_desc"
+            android:src="@drawable/ic_gallery"
+            android:background="@null" />
+
+        <!-- Tombol Capture (Tengah) -->
+        <ImageButton
+            android:id="@+id/captureButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:layout_marginHorizontal="16dp"
+            android:contentDescription="@string/button_capture_desc"
+            android:src="@drawable/ic_capture"
+            android:background="@null" />
+
+        <!-- Tombol Switch Camera -->
+        <ImageButton
+            android:id="@+id/switchCameraButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="30dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/button_switch_desc"
+            android:src="@drawable/ic_switch"
+            android:background="@null" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

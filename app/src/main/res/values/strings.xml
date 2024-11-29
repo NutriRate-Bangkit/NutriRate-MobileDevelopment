@@ -27,5 +27,25 @@
     <string name="login_belumakun"><u>Belum punya akun</u></string>
     <string name="login_selamat">Selamat Datang !</string>
     <string name="login_selamatdatang">Selamat datang ya...Masukin akun kamu dulu yuk, belum punya akun? Buat disini</string>
+    <string name="nutrition_facts">Nutrition Facts</string>
+    <string name="productNameLabel">Nama Produk :</string>
+    <string name="masukkan_nama_produk">Masukkan nama produk</string>
+    <string name="serving_size_label">Serving Size :</string>
+    <string name="masukan_jumlah">Masukan Jumlah</string>
+    <string name="gram_label">(g)</string>
+    <string name="kkal_label">(kkal)</string>
+    <string name="mg_label">(mg)</string>
+    <string name="protein_label">Protein :</string>
+    <string name="energi_label">Energi :</string>
+    <string name="fat_label">Lemak :</string>
+    <string name="saturated_fat_label">Lemak Jenuh :</string>
+    <string name="sugar_label">Gula :</string>
+    <string name="dietary_fiber_label">Serat :</string>
+    <string name="salt_label">Sodium :</string>
+    <string name="value_100">100</string>
+    <string name="save">Simpan</string>
+    <string name="button_gallery_desc">Button Gallery</string>
+    <string name="button_capture_desc">Button Capture</string>
+    <string name="button_switch_desc">Button Switch Camera</string>
 
 </resources>
