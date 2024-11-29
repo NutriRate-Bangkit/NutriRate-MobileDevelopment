@@ -50,7 +50,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     implementation (libs.androidx.constraintlayout.v210)
     implementation (libs.androidx.fragment.ktx)
     implementation (libs.androidx.viewpager2)
+    implementation (libs.material.v160)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 }

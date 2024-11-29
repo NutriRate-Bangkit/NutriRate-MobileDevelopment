@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- form_nama_ek1 from your XD file. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle" >
+	<corners android:radius="6dp" />
+	<stroke android:color="#91c788" android:width="2dp" />
+	<solid android:color="@color/form_nama_color" />
+</shape>
+

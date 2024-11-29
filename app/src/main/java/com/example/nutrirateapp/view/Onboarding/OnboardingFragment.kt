@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.nutrirateapp.MainActivity
 import com.example.nutrirateapp.databinding.FragmentOnboardingBinding
+import com.example.nutrirateapp.view.register.RegisterActivity
 
 class OnboardingFragment : Fragment() {
 
@@ -51,7 +52,7 @@ class OnboardingFragment : Fragment() {
 
         binding.startButton.visibility = if (isLast) View.VISIBLE else View.GONE
         binding.startButton.setOnClickListener {
-            startActivity(Intent(requireContext(), MainActivity::class.java))
+            startActivity(Intent(requireContext(), RegisterActivity::class.java))
             requireActivity().finish()
         }
     }

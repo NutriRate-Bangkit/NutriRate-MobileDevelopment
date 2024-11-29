@@ -6,4 +6,13 @@
     <color name="green_onboarding">#DCFAD7</color>
     <color name="abu">#B9B9B4</color>
 
+
+    <color name="_bg__signup_page_ek2_color">#DCFAD7</color>
+    <color name="form_login_color">#FFFFFF</color>
+    <color name="kenalan_dulu__yuk_color">#000000</color>
+    <color name="nutrirate_color">#91C788</color>
+    <color name="form_nama_color">#F4FFF4</color>
+    <color name="kamu_mau_dipanggil_siapa__color">#1F1F1F</color>
+    <color name="buat_akun_color">#F6F4FF</color>
+    <color name="blue">#0000FF</color>
 </resources>
