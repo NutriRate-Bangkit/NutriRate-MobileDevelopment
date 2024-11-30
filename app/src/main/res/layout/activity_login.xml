@@ -23,6 +23,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tvBelumPunyaAkun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/nunitoextrabold"
+        android:letterSpacing="0.1"
+        android:text="@string/login_belumakun"
+        android:textColor="@color/green_splash"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/subtitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,20 +51,6 @@
         app:layout_constraintTop_toBottomOf="@id/titleText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/tvBelumPunyaAkun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitoextrabold"
-        android:letterSpacing="0.1"
-        android:text="@string/login_belumakun"
-        android:textColor="@color/green_splash"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="30dp"
-        android:clickable="true"
-        android:focusable="true" />
 
 
     <LinearLayout

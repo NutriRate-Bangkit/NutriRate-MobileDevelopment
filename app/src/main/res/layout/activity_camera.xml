@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Kamera Preview -->
     <androidx.camera.view.PreviewView
         android:id="@+id/cameraPreview"
         android:layout_width="match_parent"
@@ -12,7 +11,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cameraControls" />
 
-    <!-- Kontrol Kamera -->
     <LinearLayout
         android:id="@+id/cameraControls"
         android:layout_width="0dp"
@@ -24,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Tombol Gallery -->
         <ImageButton
             android:id="@+id/galleryButton"
             android:layout_width="48dp"
@@ -35,7 +32,6 @@
             android:src="@drawable/ic_gallery"
             android:background="@null" />
 
-        <!-- Tombol Capture (Tengah) -->
         <ImageButton
             android:id="@+id/captureButton"
             android:layout_width="72dp"
@@ -47,7 +43,6 @@
             android:src="@drawable/ic_capture"
             android:background="@null" />
 
-        <!-- Tombol Switch Camera -->
         <ImageButton
             android:id="@+id/switchCameraButton"
             android:layout_width="48dp"

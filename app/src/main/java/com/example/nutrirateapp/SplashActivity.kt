@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nutrirateapp.view.Onboarding.OnboardingActivity
 
@@ -14,6 +15,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_splash)
 
         // Animasi gerakan teks app_name

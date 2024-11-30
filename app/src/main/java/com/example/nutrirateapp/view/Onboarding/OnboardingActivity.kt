@@ -12,6 +12,7 @@ class OnboardingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_onboarding)
 
         val viewPager = findViewById<ViewPager2>(R.id.viewPager)

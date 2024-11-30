@@ -2,12 +2,14 @@ package com.example.nutrirateapp.view.result
 
 import android.os.Bundle
 import android.widget.EditText
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nutrirateapp.R
 
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_result)
 
         // Ambil data dari Intent

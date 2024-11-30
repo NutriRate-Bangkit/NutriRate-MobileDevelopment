@@ -2,6 +2,11 @@ package com.example.nutrirateapp.view.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.view.View
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,12 +20,30 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        // Menangani klik pada "Belum punya akun?"
         val tvBelumPunyaAkun = findViewById<TextView>(R.id.tvBelumPunyaAkun)
         tvBelumPunyaAkun.setOnClickListener {
-            // Arahkan ke RegisterActivity
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+        val descriptionText = findViewById<TextView>(R.id.descriptionText)
+        val text = getString(R.string.login_selamatdatang)
+        val spannableString = SpannableString(text)
+
+        val clickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        // Apply clickable span to the word "disini"
+        val start = text.indexOf("disini")
+        val end = start + "disini".length
+        spannableString.setSpan(clickableSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        descriptionText.text = spannableString
+        descriptionText.movementMethod = LinkMovementMethod.getInstance()
+
     }
 }
