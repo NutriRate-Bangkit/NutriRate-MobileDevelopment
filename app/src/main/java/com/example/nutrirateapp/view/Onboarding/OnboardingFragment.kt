@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.nutrirateapp.MainActivity
 import com.example.nutrirateapp.databinding.FragmentOnboardingBinding
 import com.example.nutrirateapp.view.register.RegisterActivity
 

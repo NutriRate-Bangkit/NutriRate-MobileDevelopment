@@ -27,6 +27,8 @@
     <string name="login_belumakun"><u>Belum punya akun</u></string>
     <string name="login_selamat">Selamat Datang !</string>
     <string name="login_selamatdatang">Selamat datang ya...Masukin akun kamu dulu yuk, belum punya akun? Buat disini</string>
+
+
     <string name="nutrition_facts">Nutrition Facts</string>
     <string name="productNameLabel">Nama Produk :</string>
     <string name="masukkan_nama_produk">Masukkan nama produk</string>
@@ -47,5 +49,8 @@
     <string name="button_gallery_desc">Button Gallery</string>
     <string name="button_capture_desc">Button Capture</string>
     <string name="button_switch_desc">Button Switch Camera</string>
+
+    <string name="navbar_home">home</string>
+    <string name="navbar_history">history</string>
 
 </resources>

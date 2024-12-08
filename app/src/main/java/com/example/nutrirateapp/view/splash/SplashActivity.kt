@@ -1,4 +1,4 @@
-package com.example.nutrirateapp
+package com.example.nutrirateapp.view.splash
 
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -9,6 +9,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.nutrirateapp.R
 import com.example.nutrirateapp.view.Onboarding.OnboardingActivity
 
 class SplashActivity : AppCompatActivity() {

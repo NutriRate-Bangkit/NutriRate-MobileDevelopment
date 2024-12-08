@@ -35,7 +35,7 @@
             android:name=".view.Onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".view.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.main.MainActivity"
             android:exported="true" />
     </application>
 
