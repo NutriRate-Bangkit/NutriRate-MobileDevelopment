@@ -6,8 +6,22 @@ import androidx.lifecycle.ViewModel
 
 class HistoryViewModel : ViewModel() {
 
+    // Text for Header
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "History"
     }
     val text: LiveData<String> = _text
+
+    // Loading Status
+    private val _isLoading = MutableLiveData<Boolean>().apply {
+        value = false
+    }
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    // Example: Load Data (simulated)
+    fun loadData() {
+        _isLoading.value = true
+        // Simulate loading data...
+        _isLoading.value = false
+    }
 }
