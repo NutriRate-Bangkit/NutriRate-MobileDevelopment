@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "162761754517",
+    "project_id": "nutrirate",
+    "storage_bucket": "nutrirate.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162761754517:android:3a8b6b4d658027c882189c",
+        "android_client_info": {
+          "package_name": "com.example.nutrirateapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs3VL8VpLjuvB5khA82jGGVurh_y06Drk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

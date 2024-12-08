@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -42,6 +43,7 @@ android {
 
 dependencies {
     implementation(libs.play.services.mlkit.text.recognition)
+    implementation(libs.firebase.auth)
     val cameraxVersion = "1.3.0"
 
     implementation(libs.androidx.core.ktx)
@@ -66,4 +68,7 @@ dependencies {
     implementation(libs.androidx.camera.view)
 
     implementation(libs.text.recognition)
+
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
 }
