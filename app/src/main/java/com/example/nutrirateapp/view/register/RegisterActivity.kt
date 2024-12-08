@@ -18,12 +18,12 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.nutrirateapp.R
 import com.example.nutrirateapp.view.camera.CameraActivity
 import com.example.nutrirateapp.view.login.LoginActivity
+import com.example.nutrirateapp.view.main.MainActivity
 
 class RegisterActivity : AppCompatActivity() {
     @OptIn(ExperimentalGetImage::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_register)
 
         // Set up clickable text for "Sudah punya akun"
@@ -36,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val registerButton = findViewById<Button>(R.id.registerButton)
         registerButton.setOnClickListener {
-            val intent = Intent(this, CameraActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 

@@ -52,5 +52,19 @@
 
     <string name="navbar_home">home</string>
     <string name="navbar_history">history</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_history">History\n</string>
+    <string name="title_camera">Camera\n</string>
+    <string name="what_is_nutrirate">What is NutriRate?</string>
+    <string name="nutrirate_desc">Maintaining good health should be the primary focus of everyone. Maintaining good health should be the primary focus of everyone. Maintaining good health should be the primary focus of everyone. Maintaining good health should be the primary focus of everyone. Maintaining good health should be the primary focus of everyone.</string>
+    <string name="hello">Hello Healthy People</string>
+    <string name="slogan">Scan, grading and eat healthy food.</string>
+    <string name="grade">A</string>
+    <string name="is_the_grade_for_this_product">is the grade for this produt</string>
+    <string name="the_name_of_the_product">The Name of the Product</string>
+    <string name="grade_desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</string>
 
 </resources>

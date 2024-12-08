@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home"
-        android:title="@string/navbar_home" />
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home" />
+
+    <!-- Item kosong sebagai pemisah -->
+    <item
+        android:id="@+id/navigation_spacer"
+        android:icon="@android:color/transparent"
+        android:enabled="false"
+        android:title="" />
 
     <item
-        android:id="@+id/navigation_upComing"
-        android:icon="@drawable/ic_riwayat"
-        android:title="@string/navbar_history" />
-
-
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="History" />
 </menu>

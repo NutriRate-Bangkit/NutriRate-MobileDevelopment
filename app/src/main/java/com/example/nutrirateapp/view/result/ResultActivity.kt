@@ -1,16 +1,25 @@
 package com.example.nutrirateapp.view.result
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nutrirateapp.R
+import com.example.nutrirateapp.view.grading.GradingActivity
+import com.example.nutrirateapp.view.main.MainActivity
 
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_result)
+
+        val btnSave = findViewById<Button>(R.id.saveButton)
+        btnSave.setOnClickListener {
+            val intent = Intent(this, GradingActivity::class.java)
+            startActivity(intent)
+        }
 
         // Ambil data dari Intent
         val protein = intent.getStringExtra("PROTEIN") ?: "Not found"

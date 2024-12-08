@@ -1,39 +1,37 @@
 package com.example.nutrirateapp.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.nutrirateapp.R
 import com.example.nutrirateapp.databinding.ActivityMainBinding
+import com.example.nutrirateapp.view.camera.CameraActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    // Deklarasi variabel untuk binding dan NavController
     private lateinit var binding: ActivityMainBinding
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Inflate layout menggunakan View Binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Setup Navigation Component
-        val navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        // Setup NavController
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        // Inisialisasi NavController
-        navController = navHostFragment.navController
+        // Hubungkan BottomNavigationView dengan NavController
+        val navView: BottomNavigationView = binding.navView
+        navView.setupWithNavController(navController)
 
-        // Hubungkan Bottom Navigation dengan NavController
-        binding.bottomNavigationView.setupWithNavController(navController)
-    }
-
-    // Optional: Override method untuk menangani tombol back
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+        // Custom handling untuk FloatingActionButton (FAB)
+        binding.fab.setOnClickListener {
+            val intent = Intent(this, CameraActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            }
+            startActivity(intent)
+        }
     }
 }

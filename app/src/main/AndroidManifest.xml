@@ -17,6 +17,13 @@
         android:theme="@style/Theme.NutriRateApp"
         tools:targetApi="31">
         <activity
+            android:name=".view.grading.GradingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.main.MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main" />
+        <activity
             android:name=".view.result.ResultActivity"
             android:exported="false" />
         <activity
@@ -43,9 +50,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.main.MainActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

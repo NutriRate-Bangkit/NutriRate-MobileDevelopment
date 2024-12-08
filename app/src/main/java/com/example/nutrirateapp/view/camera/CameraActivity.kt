@@ -20,6 +20,7 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import com.example.nutrirateapp.R
+import com.example.nutrirateapp.view.main.MainActivity
 import com.example.nutrirateapp.view.result.ResultActivity
 
 @ExperimentalGetImage
@@ -232,6 +233,20 @@ class CameraActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onBackPressed() {
+        // Kembali ke MainActivity
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        }
+        startActivity(intent)
+        finish() // Mengakhiri CameraActivity
+
+        // Memanggil implementasi bawaan
+        super.onBackPressed()
+    }
+
+
 
     companion object {
         private const val TAG = "CameraActivity"
