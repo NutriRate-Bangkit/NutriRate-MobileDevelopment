@@ -4,7 +4,6 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Home" />
 
-    <!-- Item kosong sebagai pemisah -->
     <item
         android:id="@+id/navigation_spacer"
         android:icon="@android:color/transparent"

@@ -1,11 +1,11 @@
-package com.example.nutrirateapp.data
+package com.example.nutrirateapp.data.model
 
 data class RegisterRequest(
+    val name: String,
     val email: String,
     val password: String
 )
 
-// RegisterResponse.kt
 data class RegisterResponse(
     val message: String,
     val userId:String

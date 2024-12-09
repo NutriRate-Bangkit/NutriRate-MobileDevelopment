@@ -26,7 +26,7 @@
         android:id="@+id/tvSudahPunyaAkun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="140dp"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/nunitoextrabold"
@@ -35,7 +35,7 @@
         android:textColor="@color/green_splash"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,16 +135,16 @@
             android:layout_marginBottom="15dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/form_nama_shape"
-                android:hint="@string/regis_contohemail"
-                android:letterSpacing="0.1"
-                android:fontFamily="@font/nunitoblack"
-                android:textSize="10sp"
-                android:inputType="textEmailAddress"
-                android:textColor="#000000"/>
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/form_nama_shape"
+            android:fontFamily="@font/nunitoblack"
+            android:hint="@string/regis_contohemail"
+            android:inputType="textEmailAddress"
+            android:letterSpacing="0.1"
+            android:textColor="#000000"
+            android:textSize="10sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password TextView -->
@@ -192,5 +192,15 @@
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/green_splash"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

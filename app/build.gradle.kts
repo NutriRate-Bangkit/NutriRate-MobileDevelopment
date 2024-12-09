@@ -63,6 +63,7 @@ dependencies {
     implementation (libs.material.v160)
     implementation (libs.androidx.navigation.fragment.ktx)
     implementation (libs.navigation.ui.ktx)
+    implementation (libs.androidx.activity.ktx)
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)

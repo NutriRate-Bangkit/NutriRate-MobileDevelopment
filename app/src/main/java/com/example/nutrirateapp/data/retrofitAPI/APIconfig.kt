@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object APIconfig {
 
-    var BASE_URL = "https://story-api.dicoding.dev/v1/"
+    var BASE_URL = "https://nutrition-api-162761754517.asia-southeast2.run.app/"
 
     fun getApiService(): APIservice {
         val loggingInterceptor = HttpLoggingInterceptor()
