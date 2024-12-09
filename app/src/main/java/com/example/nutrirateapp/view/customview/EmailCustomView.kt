@@ -44,7 +44,6 @@ class EmailCustomView : AppCompatEditText {
             }
 
             override fun afterTextChanged(s: Editable) {
-                // Do nothing.
             }
         })
     }

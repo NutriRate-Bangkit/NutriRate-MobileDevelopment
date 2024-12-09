@@ -32,31 +32,23 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupClickableTexts() {
-        // Setup "Belum punya akun" clickable text
         binding.tvBelumPunyaAkun.setOnClickListener {
             navigateToRegister()
         }
 
-        // Setup "disini" clickable text in description
         val text = getString(R.string.login_selamatdatang)
         val spannableString = SpannableString(text)
 
         text.indexOf("disini").let { startIndex ->
             if (startIndex >= 0) {
                 val endIndex = startIndex + "disini".length
-
                 val clickableSpan = object : ClickableSpan() {
                     override fun onClick(widget: View) {
                         navigateToRegister()
                     }
                 }
-
-                spannableString.setSpan(
-                    clickableSpan,
-                    startIndex,
-                    endIndex,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
+                spannableString.setSpan(clickableSpan, startIndex, endIndex,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             }
         }
 
@@ -70,27 +62,8 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
-
-            if (validateInput(email, password)) {
-                viewModel.loginUser(email, password)
-            }
+            viewModel.loginUser(email, password)
         }
-    }
-
-    private fun validateInput(email: String, password: String): Boolean {
-        var isValid = true
-
-        if (email.isEmpty()) {
-            binding.emailEditText.error = "Email wajib diisi"
-            isValid = false
-        }
-
-        if (password.isEmpty()) {
-            binding.passwordEditText.error = "Password wajib diisi"
-            isValid = false
-        }
-
-        return isValid
     }
 
     private fun setupObservers() {
@@ -105,11 +78,7 @@ class LoginActivity : AppCompatActivity() {
                     navigateToMain()
                 },
                 onFailure = { exception ->
-                    Toast.makeText(
-                        this,
-                        "Login failed: ${exception.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, exception.message, Toast.LENGTH_SHORT).show()
                 }
             )
         }

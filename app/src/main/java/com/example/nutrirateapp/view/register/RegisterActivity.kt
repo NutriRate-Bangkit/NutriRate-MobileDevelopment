@@ -38,31 +38,22 @@ class RegisterActivity : AppCompatActivity() {
             navigateToLogin()
         }
 
-        // Setup clickable text "disini"
         val text = getString(R.string.regis_kitakenalan)
         val spannableString = SpannableString(text)
 
-        // Find index of "disini" in the text
         text.indexOf("disini").let { startIndex ->
             if (startIndex >= 0) {
                 val endIndex = startIndex + "disini".length
-
                 val clickableSpan = object : ClickableSpan() {
                     override fun onClick(widget: View) {
                         navigateToLogin()
                     }
                 }
-
-                spannableString.setSpan(
-                    clickableSpan,
-                    startIndex,
-                    endIndex,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
+                spannableString.setSpan(clickableSpan, startIndex, endIndex,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             }
         }
 
-        // Apply the spannable text to descriptionText
         binding.descriptionText.apply {
             setText(spannableString)
             movementMethod = LinkMovementMethod.getInstance()
@@ -74,35 +65,8 @@ class RegisterActivity : AppCompatActivity() {
             val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
-
-            if (validateInput(name, email, password)) {
-                viewModel.registerUser(name, email, password)
-            }
+            viewModel.registerUser(name, email, password)
         }
-    }
-
-    private fun validateInput(name: String, email: String, password: String): Boolean {
-        var isValid = true
-
-        if (name.isEmpty()) {
-            binding.nameEditText.error = "Nama wajib diisi"
-            isValid = false
-        }
-
-        if (email.isEmpty()) {
-            binding.emailEditText.error = "Email wajib diisi"
-            isValid = false
-        }
-
-        if (password.isEmpty()) {
-            binding.passwordEditText.error = "Password wajib diisi"
-            isValid = false
-        } else if (password.length < 6) {
-            binding.passwordEditText.error = "Password minimal 6 karakter"
-            isValid = false
-        }
-
-        return isValid
     }
 
     private fun setupObservers() {
@@ -117,11 +81,7 @@ class RegisterActivity : AppCompatActivity() {
                     navigateToLoginAfterRegister()
                 },
                 onFailure = { exception ->
-                    Toast.makeText(
-                        this,
-                        "Registration failed: ${exception.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, exception.message, Toast.LENGTH_SHORT).show()
                 }
             )
         }
