@@ -5,6 +5,7 @@ import com.example.nutrirateapp.data.model.LoginResponse
 import com.example.nutrirateapp.data.model.RegisterRequest
 import com.example.nutrirateapp.data.model.RegisterResponse
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface APIservice {
@@ -12,7 +13,7 @@ interface APIservice {
     ("/auth/register")
     suspend fun register(@Body registerRequest: RegisterRequest): RegisterResponse
 
-    @POST
+    @GET
     ("/auth/login")
     suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
 }

@@ -73,4 +73,7 @@
     <string name="help_support"><![CDATA[Help & Support]]></string>
     <string name="lupa_password">lupa password?</string>
 
+    <string name="invalid_email">Masukan email kamu dengan benar ya !</string>
+    <string name="minimumcharacters">Kata sandi harus memiliki minimal 8 karakter ya !</string>
+
 </resources>
