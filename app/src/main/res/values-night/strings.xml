@@ -7,4 +7,5 @@
     <string name="product_image">product image\n</string>
     <string name="profile_image">image profile</string>
     <string name="back_button">back button\n</string>
+    <string name="lupa_password">lupa password?</string>
 </resources>

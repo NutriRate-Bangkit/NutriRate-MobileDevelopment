@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,94 +9,88 @@
     tools:context=".view.register.RegisterActivity">
 
     <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/nunitoextrabold"
-        android:letterSpacing="0.1"
-        android:text="@string/nutrirate"
-        android:textColor="@color/green_splash"
-        android:textSize="42sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tvSudahPunyaAkun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
-        android:fontFamily="@font/nunitoextrabold"
-        android:letterSpacing="0.1"
         android:text="@string/regis_sudahakun"
-        android:textColor="@color/green_splash"
+        android:textColor="@color/black"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/nutrirate"
+        android:textColor="@color/green_splash"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvSudahPunyaAkun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/subtitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/regis_hidupsehat"
-        android:fontFamily="@font/nunitoblack"
         android:textSize="16sp"
         android:letterSpacing="0.1"
-        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/titleText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Form Container -->
     <LinearLayout
         android:id="@+id/formContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:background="@drawable/form_login_shape"
+        android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@id/subtitleText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="80dp">
 
         <TextView
             android:id="@+id/introText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/regis_kenalan"
-            android:fontFamily="@font/nunitoblack"
-            android:letterSpacing="0.1"
-            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textSize="24sp"
             android:textColor="#000000"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/descriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/regis_kitakenalan"
-            android:fontFamily="@font/nunitoextrabold"
-            android:letterSpacing="0.1"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="#000000"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp" />
 
+        <!-- Name Input -->
         <TextView
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/regis_nama"
-            android:letterSpacing="0.1"
-            android:fontFamily="@font/nunitoblack"
+            android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="#000000"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nameInputLayout"
@@ -103,31 +98,28 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-         android:id="@+id/nameEditText"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:hint="@string/regis_dipanggil"
-         android:background="@drawable/form_nama_shape"
-         android:letterSpacing="0.1"
-         android:fontFamily="@font/nunitoblack"
-         android:textSize="10sp"
-         android:inputType="textPersonName"
-         android:textColor="#000000"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/regis_dipanggil"
+                android:background="@drawable/form_nama_shape"
+                android:textSize="14sp"
+                android:inputType="textPersonName"
+                android:textColor="#000000" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Email TextView -->
+        <!-- Email Input -->
         <TextView
             android:id="@+id/emailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/regis_email"
-            android:fontFamily="@font/nunitoblack"
+            android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="#000000"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp" />
 
-        <!-- Email input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailInputLayout"
             android:layout_width="match_parent"
@@ -135,47 +127,42 @@
             android:layout_marginBottom="15dp">
 
             <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/form_nama_shape"
-            android:fontFamily="@font/nunitoblack"
-            android:hint="@string/regis_contohemail"
-            android:inputType="textEmailAddress"
-            android:letterSpacing="0.1"
-            android:textColor="#000000"
-            android:textSize="10sp" />
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/form_nama_shape"
+                android:hint="@string/regis_contohemail"
+                android:inputType="textEmailAddress"
+                android:textColor="#000000"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password TextView -->
+        <!-- Password Input -->
         <TextView
             android:id="@+id/passwordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/regis_password"
-            android:fontFamily="@font/nunitoblack"
+            android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="#000000"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp" />
 
-        <!-- Password input -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-         android:id="@+id/passwordEditText"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:background="@drawable/form_nama_shape"
-         android:hint="@string/regis_bikinpassword"
-         android:letterSpacing="0.1"
-         android:fontFamily="@font/nunitoblack"
-         android:textSize="10sp"
-         android:inputType="textPassword"
-         android:textColor="#000000"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/form_nama_shape"
+                android:hint="@string/regis_bikinpassword"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                android:textColor="#000000" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -186,10 +173,7 @@
             android:fontFamily="@font/nunitoextrabold"
             android:text="@string/regis_buatakun"
             android:textColor="@color/buat_akun_color"
-            android:textSize="12sp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="682dp" />
-
+            android:textSize="14sp" />
     </LinearLayout>
 
     <ProgressBar
@@ -201,6 +185,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

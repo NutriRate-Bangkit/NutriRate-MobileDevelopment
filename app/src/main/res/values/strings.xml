@@ -60,7 +60,7 @@
     <string name="title_history">History\n</string>
     <string name="title_camera">Camera\n</string>
     <string name="what_is_nutrirate">What is NutriRate?</string>
-    <string name="nutrirate_desc">Maintaining good health should be the primary focus of everyone. Maintaining good health should be the primary focus of everyone. Maintaining good health should be the primary focus of everyone. Maintaining good health should be the primary focus of everyone. Maintaining good health should be the primary focus of everyone.</string>
+    <string name="nutrirate_desc">NutriRate is an application inspired by France’s NutriScore System, which rates food and drink products based on sugar, salt, and saturated fat content. With a similar approach, NutriRate aims to provide an assessment of packaged food and drinks in Indonesia with a rating system from A to E based on nutritional content. This application will help people understand the quality of the food and beverage products they consume through more transparent and practical information.</string>
     <string name="hello">Hello Healthy People</string>
     <string name="slogan">Scan, grading and eat healthy food.</string>
     <string name="grade">A</string>
@@ -71,5 +71,6 @@
     <string name="profile_image">image profile</string>
     <string name="back_button">back button\n</string>
     <string name="help_support"><![CDATA[Help & Support]]></string>
+    <string name="lupa_password">lupa password?</string>
 
 </resources>
