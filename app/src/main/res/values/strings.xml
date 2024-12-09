@@ -67,5 +67,8 @@
     <string name="the_name_of_the_product">The Name of the Product</string>
     <string name="grade_desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</string>
     <string name="product_image">product image\n</string>
+    <string name="profile_image">image profile</string>
+    <string name="back_button">back button\n</string>
+    <string name="help_support"><![CDATA[Help & Support]]></string>
 
 </resources>
