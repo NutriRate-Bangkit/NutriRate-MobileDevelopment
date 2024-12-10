@@ -11,14 +11,18 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.nutrirateapp.R
+import com.example.nutrirateapp.data.pref.UserPreferences
 import com.example.nutrirateapp.databinding.ActivityLoginBinding
 import com.example.nutrirateapp.view.main.MainActivity
 import com.example.nutrirateapp.view.register.RegisterActivity
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
+    private lateinit var userPreferences: UserPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,18 +30,18 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
 
+        userPreferences = UserPreferences(this)
+
         setupClickableTexts()
         setupLoginButton()
         setupObservers()
     }
 
     private fun setupClickableTexts() {
-        // Setup "Belum punya akun" clickable text
         binding.tvBelumPunyaAkun.setOnClickListener {
             navigateToRegister()
         }
 
-        // Setup "disini" clickable text in description
         val text = getString(R.string.login_selamatdatang)
         val spannableString = SpannableString(text)
 
@@ -101,19 +105,19 @@ class LoginActivity : AppCompatActivity() {
         viewModel.loginResult.observe(this) { result ->
             result.fold(
                 onSuccess = { response ->
-                    Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show()
-                    navigateToMain()
+                    lifecycleScope.launch {
+                        userPreferences.saveSession(response.userId, response.email)
+                        Toast.makeText(this@LoginActivity, response.message, Toast.LENGTH_SHORT).show()
+                        navigateToMain()
+                    }
                 },
                 onFailure = { exception ->
-                    Toast.makeText(
-                        this,
-                        "Login failed: ${exception.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, exception.message, Toast.LENGTH_SHORT).show()
                 }
             )
         }
     }
+
 
     private fun showLoading(isLoading: Boolean) {
         binding.apply {
