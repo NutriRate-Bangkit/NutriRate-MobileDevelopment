@@ -3,12 +3,11 @@ package com.example.nutrirateapp.data.repository
 import android.content.Context
 import com.example.nutrirateapp.data.model.LoginRequest
 import com.example.nutrirateapp.data.model.LoginResponse
+import com.example.nutrirateapp.data.model.LogoutResponse
 import com.example.nutrirateapp.data.model.RegisterRequest
 import com.example.nutrirateapp.data.model.RegisterResponse
 import com.example.nutrirateapp.data.pref.UserPreferences
 import com.example.nutrirateapp.data.retrofitAPI.APIconfig
-import com.example.nutrirateapp.data.retrofitAPI.APIservice
-import kotlinx.coroutines.flow.first
 
 class UserRepository(private val context: Context) {
     private val userPreferences = UserPreferences(context)
@@ -37,8 +36,13 @@ class UserRepository(private val context: Context) {
         }
     }
 
-    private suspend fun getAuthenticatedApiService(): APIservice {
-        val token = userPreferences.getToken().first() ?: ""
-        return APIconfig.getApiService(token)
+    suspend fun logout(): Result<LogoutResponse> {
+        return try {
+            val response = apiService.logout()
+            userPreferences.logout()
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
     }
 }

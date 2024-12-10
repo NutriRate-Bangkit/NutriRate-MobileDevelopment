@@ -11,3 +11,7 @@ data class LoginResponse(
     val email: String,
     val token: String
 )
+
+data class LogoutResponse(
+    val message: String
+)
