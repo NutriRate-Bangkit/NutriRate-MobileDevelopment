@@ -14,10 +14,11 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 
 class UserPreferences(private val context: Context) {
 
-    suspend fun saveSession(userId: String, email: String) {
+    suspend fun saveSession(userId: String, email: String, token: String) {
         context.dataStore.edit { preferences ->
             preferences[ID_KEY] = userId
             preferences[EMAIL_KEY] = email
+            preferences[TOKEN_KEY] = token
             preferences[IS_LOGIN_KEY] = true
         }
     }
@@ -25,6 +26,24 @@ class UserPreferences(private val context: Context) {
     fun getSession(): Flow<Boolean> {
         return context.dataStore.data.map { preferences ->
             preferences[IS_LOGIN_KEY] ?: false
+        }
+    }
+
+    fun getToken(): Flow<String?> {
+        return context.dataStore.data.map { preferences ->
+            preferences[TOKEN_KEY]
+        }
+    }
+
+    fun getUserId(): Flow<String?> {
+        return context.dataStore.data.map { preferences ->
+            preferences[ID_KEY]
+        }
+    }
+
+    fun getUserEmail(): Flow<String?> {
+        return context.dataStore.data.map { preferences ->
+            preferences[EMAIL_KEY]
         }
     }
 
@@ -37,6 +56,7 @@ class UserPreferences(private val context: Context) {
     companion object {
         private val ID_KEY = stringPreferencesKey("user_id")
         private val EMAIL_KEY = stringPreferencesKey("user_email")
+        private val TOKEN_KEY = stringPreferencesKey("user_token")
         private val IS_LOGIN_KEY = booleanPreferencesKey("is_login")
     }
 }

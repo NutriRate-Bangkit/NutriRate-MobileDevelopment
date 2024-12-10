@@ -106,7 +106,11 @@ class LoginActivity : AppCompatActivity() {
             result.fold(
                 onSuccess = { response ->
                     lifecycleScope.launch {
-                        userPreferences.saveSession(response.userId, response.email)
+                        userPreferences.saveSession(
+                            userId = response.userId,
+                            email = response.email,
+                            token = response.token
+                        )
                         Toast.makeText(this@LoginActivity, response.message, Toast.LENGTH_SHORT).show()
                         navigateToMain()
                     }
