@@ -1,15 +1,70 @@
 package com.example.nutrirateapp.view.grading
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.cardview.widget.CardView
 import com.example.nutrirateapp.R
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class GradingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grading)
+
+        val productCard = findViewById<CardView>(R.id.productCard)
+        val hiddenGrades = findViewById<View>(R.id.hiddenGrades)
+        val bottomSheetBehavior = BottomSheetBehavior.from(productCard)
+
+        // Set tinggi awal (collapsed)
+        bottomSheetBehavior.peekHeight = 1650
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+
+        // Pastikan hidden grades tersembunyi di awal
+        hiddenGrades.visibility = View.GONE
+
+        // Callback untuk BottomSheetBehavior
+        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState) {
+                    BottomSheetBehavior.STATE_EXPANDED -> animateFadeIn(hiddenGrades)
+                    BottomSheetBehavior.STATE_COLLAPSED -> animateFadeOut(hiddenGrades)
+                    else -> Unit
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                // Optional: Tidak ada aksi tambahan pada onSlide
+            }
+        })
+    }
+
+    private fun animateFadeIn(view: View) {
+        if (view.visibility != View.VISIBLE) {
+            view.visibility = View.VISIBLE
+            val fadeIn = AlphaAnimation(0f, 1f)
+            fadeIn.duration = 500 // Durasi animasi dalam milidetik
+            fadeIn.fillAfter = true
+            view.startAnimation(fadeIn)
+        }
+    }
+
+    private fun animateFadeOut(view: View) {
+        if (view.visibility == View.VISIBLE) {
+            val fadeOut = AlphaAnimation(1f, 0f)
+            fadeOut.duration = 500 // Durasi animasi dalam milidetik
+            fadeOut.fillAfter = true
+            fadeOut.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation?) {}
+                override fun onAnimationEnd(animation: Animation?) {
+                    view.visibility = View.GONE
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {}
+            })
+            view.startAnimation(fadeOut)
+        }
     }
 }
