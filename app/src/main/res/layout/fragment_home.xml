@@ -9,6 +9,7 @@
     android:fitsSystemWindows="false"
     tools:context=".view.main.ui.home.HomeFragment">
 
+
     <!-- Header Layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_layout"
@@ -20,6 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
 
         <!-- App Name -->
         <TextView
@@ -34,6 +36,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+
         <!-- Profile Section -->
         <LinearLayout
             android:id="@+id/profile_section"
@@ -47,6 +50,7 @@
             app:layout_constraintStart_toEndOf="@id/tv_appname"
             app:layout_constraintTop_toTopOf="parent">
 
+
             <TextView
                 android:id="@+id/tx_profile"
                 android:layout_width="wrap_content"
@@ -57,6 +61,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdv_photo"
                 android:layout_width="36dp"
@@ -65,18 +70,23 @@
                 app:cardCornerRadius="50dp"
                 app:cardElevation="2dp">
 
+
                 <ImageView
                     android:id="@+id/img_profile"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:contentDescription="@string/profile_image"
-                    android:src="@drawable/img_photo" />
+                    android:src="@drawable/img_user" />
+
 
             </androidx.cardview.widget.CardView>
 
+
         </LinearLayout>
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <!-- Hello Text -->
     <TextView
@@ -97,6 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:alpha="100" />
 
+
     <!-- Slogan Text -->
     <TextView
         android:id="@+id/slogan"
@@ -115,6 +126,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:alpha="100" />
 
+
     <!-- Image View -->
     <ImageView
         android:id="@+id/imageView"
@@ -128,6 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/img_home" />
+
 
     <!-- Title Text -->
     <TextView
@@ -146,6 +159,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:alpha="100" />
+
 
     <!-- Description Text -->
     <TextView
@@ -166,6 +180,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:alpha="100" />
 
+
     <!-- Horizontal Guideline -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"
@@ -174,6 +189,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
+
     <!-- Vertical Guideline -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineVertical"
@@ -181,5 +197,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

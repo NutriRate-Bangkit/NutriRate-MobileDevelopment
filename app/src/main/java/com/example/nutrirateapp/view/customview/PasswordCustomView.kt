@@ -1,5 +1,6 @@
 package com.example.nutrirateapp.view.customview
 
+
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Editable
@@ -12,11 +13,14 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.example.nutrirateapp.R
 
+
 class PasswordCustomView: AppCompatEditText, View.OnTouchListener{
+
 
     private lateinit var passwordButtonImage: Drawable
     private lateinit var passwordIcon: Drawable
     private var isPasswordVisible = false
+
 
     constructor(context: Context) : super(context) {
         init()
@@ -28,11 +32,13 @@ class PasswordCustomView: AppCompatEditText, View.OnTouchListener{
         init()
     }
 
+
     private fun init() {
         setOnTouchListener(this)
-        passwordButtonImage = ContextCompat.getDrawable(context, if (!isPasswordVisible) R.drawable.ic_baseline_remove_red_eye_24 else R.drawable.ic_baseline_hide_eye_24) as Drawable
-        passwordIcon = ContextCompat.getDrawable(context, R.drawable.ic_baseline_lock_24) as Drawable
+        passwordButtonImage = ContextCompat.getDrawable(context, if (!isPasswordVisible) R.drawable.ic_eye else R.drawable.ic_hide_eye) as Drawable
+        passwordIcon = ContextCompat.getDrawable(context, R.drawable.ic_lock) as Drawable
         setEditCompoundDrawables(endOfTheText = passwordButtonImage, startOfTheText = passwordIcon)
+
 
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -50,7 +56,9 @@ class PasswordCustomView: AppCompatEditText, View.OnTouchListener{
             }
         })
 
+
     }
+
 
     private fun setEditCompoundDrawables(
         startOfTheText: Drawable? = null,
@@ -65,6 +73,7 @@ class PasswordCustomView: AppCompatEditText, View.OnTouchListener{
             bottomOfTheText
         )
     }
+
 
     override fun onTouch(v: View?, event: MotionEvent): Boolean {
         if(compoundDrawables[2] != null){
@@ -85,7 +94,7 @@ class PasswordCustomView: AppCompatEditText, View.OnTouchListener{
             if(isPasswordButtonClicked){
                 when(event.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        passwordButtonImage = ContextCompat.getDrawable(context, if(isPasswordVisible) R.drawable.ic_baseline_hide_eye_24 else R.drawable.ic_baseline_remove_red_eye_24) as Drawable
+                        passwordButtonImage = ContextCompat.getDrawable(context, if(isPasswordVisible) R.drawable.ic_hide_eye else R.drawable.ic_eye) as Drawable
                         setEditCompoundDrawables(endOfTheText = passwordButtonImage, startOfTheText = passwordIcon)
                         transformationMethod = if(isPasswordVisible) null else PasswordTransformationMethod.getInstance()
                         isPasswordVisible = !isPasswordVisible

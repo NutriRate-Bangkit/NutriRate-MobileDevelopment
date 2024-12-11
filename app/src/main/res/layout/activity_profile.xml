@@ -6,6 +6,8 @@
     android:background="@color/_bg__signup_page_ek2_color">
 
 
+
+
     <ImageView
         android:id="@+id/btn_back"
         android:layout_width="24dp"
@@ -15,6 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp" />
+
+
 
 
     <androidx.cardview.widget.CardView
@@ -29,11 +33,15 @@
         android:layout_margin="16dp">
 
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="24dp">
+
+
 
 
             <androidx.cardview.widget.CardView
@@ -45,15 +53,21 @@
                 app:cardElevation="2dp">
 
 
+
+
                 <ImageView
                     android:id="@+id/img_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/profile_image"
-                    android:src="@drawable/img_photo" />
+                    android:src="@drawable/img_user" />
+
+
 
 
             </androidx.cardview.widget.CardView>
+
+
 
 
             <LinearLayout
@@ -63,24 +77,32 @@
                 android:gravity="center_vertical">
 
 
+
+
                 <TextView
-                    android:id="@+id/tvName"
+                    android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Jonathan Putra"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/black" />
 
 
+
+
                 <TextView
-                    android:id="@+id/tvEmail"
+                    android:id="@+id/tv_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="jhonputra00@gmail.com"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+
 
 
     <androidx.cardview.widget.CardView
@@ -95,11 +117,15 @@
         android:layout_margin="16dp">
 
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="8dp">
+
+
 
 
             <TextView
@@ -114,10 +140,14 @@
                 android:drawablePadding="8dp" />
 
 
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/abu" />
+
+
 
 
             <TextView
@@ -125,11 +155,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="Change Password"
+                android:text="Ganti Password"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:drawableEnd="@drawable/ic_arrow"
                 android:drawablePadding="8dp" />
+
+
 
 
             <View
@@ -138,18 +170,22 @@
                 android:background="@color/abu" />
 
 
+
+
             <TextView
                 android:id="@+id/tv_delete_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="Delete Account"
+                android:text="Hapus Akun"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:drawableEnd="@drawable/ic_arrow"
                 android:drawablePadding="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+
 
 
     <TextView
@@ -169,6 +205,8 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/more_section"
         android:layout_width="0dp"
@@ -183,11 +221,15 @@
         android:layout_marginEnd="16dp">
 
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="8dp">
+
+
 
 
             <TextView
@@ -202,10 +244,14 @@
                 android:drawablePadding="8dp" />
 
 
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/abu" />
+
+
 
 
             <TextView
@@ -213,13 +259,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="About App"
+                android:text="Tentang Kami"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:drawableEnd="@drawable/ic_arrow"
                 android:drawablePadding="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -230,6 +277,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/more_section" />
+
 
     <Button
         android:id="@+id/btnLogout"
@@ -244,6 +292,8 @@
         app:layout_constraintHorizontal_bias="0.982"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/more_section" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -31,6 +32,25 @@ class ProfileActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             finish()
         }
+
+        val tvEditProfile = findViewById<TextView>(R.id.tv_edit_profile)
+        val tvName = findViewById<TextView>(R.id.tv_name)
+
+        tvEditProfile.setOnClickListener {
+            // Show Edit Profile Dialog
+            val dialog = EditProfileDialogFragment { newName ->
+                tvName.text = newName
+                Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show()
+            }
+            dialog.show(supportFragmentManager, "EditProfileDialog")
+        }
+
+        val tvChangePassword = findViewById<TextView>(R.id.tv_change_password)
+        tvChangePassword.setOnClickListener {
+            // Show Change Password Dialog
+            val dialog = ChangePasswordFragment()
+            dialog.show(supportFragmentManager, "ChangePasswordDialog")
+        }
     }
 
     private fun setupLogoutButton() {
@@ -55,8 +75,11 @@ class ProfileActivity : AppCompatActivity() {
                 },
                 onFailure = { exception ->
                     Log.e("Profile", "Error: ${exception.message}")  // Tambahkan ini
-                    Toast.makeText(this, "Failed to load profile: ${exception.message}",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        "Failed to load profile: ${exception.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             )
         }

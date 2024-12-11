@@ -1,5 +1,6 @@
 package com.example.nutrirateapp.view.customview
 
+
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Editable
@@ -10,9 +11,12 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.example.nutrirateapp.R
 
+
 class EmailCustomView : AppCompatEditText {
 
+
     private lateinit var emailIcon: Drawable
+
 
     constructor(context: Context) : super(context) {
         init()
@@ -24,15 +28,19 @@ class EmailCustomView : AppCompatEditText {
         init()
     }
 
+
     private fun init() {
         // Set the email icon drawable
-        emailIcon = ContextCompat.getDrawable(context, R.drawable.ic_baseline_email_24) as Drawable
+        emailIcon = ContextCompat.getDrawable(context, R.drawable.ic_email) as Drawable
+        compoundDrawablePadding = convertDpToPx(8) // Add padding of 8dp
         setEditCompoundDrawables(startOfTheText = emailIcon)
+
 
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 // Do nothing.
             }
+
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 // Validate email format
@@ -43,10 +51,12 @@ class EmailCustomView : AppCompatEditText {
                 }
             }
 
+
             override fun afterTextChanged(s: Editable) {
             }
         })
     }
+
 
     private fun setEditCompoundDrawables(
         startOfTheText: Drawable? = null,
@@ -60,5 +70,11 @@ class EmailCustomView : AppCompatEditText {
             endOfTheText,
             bottomOfTheText
         )
+    }
+
+
+    private fun convertDpToPx(dp: Int): Int {
+        val density = resources.displayMetrics.density
+        return (dp * density).toInt()
     }
 }

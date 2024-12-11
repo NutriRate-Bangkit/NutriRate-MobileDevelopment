@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">NutriRate</string>
 
+
     <string name="nutrirate">NutriRate</string>
     <string name="judulbawah">Food Grading App</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -8,6 +9,8 @@
     <string name="onboardingTitle">Grading Makanan dengan Mudah</string>
     <string name="loremIpsum">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</string>
     <string name="textStart">Let\'s Start!</string>
+
+
 
 
     <string name="regis_kenalan">Kenalan Dulu, Yuk</string>
@@ -20,7 +23,9 @@
     <string name="regis_contohemail">Masukin email kamu yuk! Contoh: abc@gmail.com</string>
     <string name="regis_password">Password</string>
     <string name="regis_buatakun">Buat Akun</string>
-    <string name="regis_bikinpassword">Bikin password nya juga ya! Minimal 8 karakter</string>
+    <string name="regis_bikinpassword">Bikin password nya juga ya!</string>
+
+
 
 
     <string name="login_password">Masukin password juga ya !</string>
@@ -30,10 +35,12 @@
     <string name="login_masukdisini">Masuk Disini Ya !</string>
 
 
+
+
     <string name="nutrition_facts">Nutrition Facts</string>
     <string name="productNameLabel">Nama Produk :</string>
     <string name="masukkan_nama_produk">Masukkan nama produk</string>
-    <string name="serving_size_label">Serving Size :</string>
+    <string name="serving_size_label">Takaran Saji :</string>
     <string name="masukan_jumlah">Masukan Jumlah</string>
     <string name="gram_label">(g)</string>
     <string name="kkal_label">(kkal)</string>
@@ -51,6 +58,7 @@
     <string name="button_capture_desc">Button Capture</string>
     <string name="button_switch_desc">Button Switch Camera</string>
 
+
     <string name="navbar_home">home</string>
     <string name="navbar_history">history</string>
     <string name="title_activity_main">MainActivity</string>
@@ -60,11 +68,11 @@
     <string name="title_history">History\n</string>
     <string name="title_camera">Camera\n</string>
     <string name="what_is_nutrirate">What is NutriRate?</string>
-    <string name="nutrirate_desc">NutriRate is an application inspired by France’s NutriScore System, which rates food and drink products based on sugar, salt, and saturated fat content. With a similar approach, NutriRate aims to provide an assessment of packaged food and drinks in Indonesia with a rating system from A to E based on nutritional content. This application will help people understand the quality of the food and beverage products they consume through more transparent and practical information.</string>
+    <string name="nutrirate_desc">NutriRate merupakan aplikasi yang terinspirasi dari NutriScore System dari Perancis, yang menilai produk makanan dan minuman berdasarkan kandungan gula, garam, dan lemak jenuh. Dengan pendekatan yang serupa, NutriRate bertujuan untuk memberikan penilaian terhadap makanan dan minuman kemasan di Indonesia dengan sistem penilaian dari A hingga E berdasarkan kandungan gizi. Aplikasi ini akan membantu masyarakat untuk memahami kualitas produk makanan dan minuman yang mereka konsumsi melalui informasi yang lebih transparan dan praktis.</string>
     <string name="hello">Hello Healthy People</string>
-    <string name="slogan">Scan, grading and eat healthy food.</string>
+    <string name="slogan">Memindai, menilai, dan makan makanan sehat.</string>
     <string name="grade">A</string>
-    <string name="is_the_grade_for_this_product">is the grade for this produt</string>
+    <string name="is_the_grade_for_this_product">adalah nilai untuk produk ini</string>
     <string name="the_name_of_the_product">The Name of the Product</string>
     <string name="grade_desc">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</string>
     <string name="product_image">product image\n</string>
@@ -73,7 +81,9 @@
     <string name="help_support"><![CDATA[Help & Support]]></string>
     <string name="lupa_password">lupa password?</string>
 
+
     <string name="invalid_email">Masukan email kamu dengan benar ya !</string>
     <string name="minimumcharacters">Kata sandi harus memiliki minimal 8 karakter ya !</string>
+
 
 </resources>

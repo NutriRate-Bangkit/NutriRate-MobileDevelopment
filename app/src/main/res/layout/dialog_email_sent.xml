@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/form_edit_profile"
+    android:gravity="center_horizontal">
+
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvEmailSentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Terkirim!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/tvEmailSentDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Silakan periksa email Anda untuk mengganti password."
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+
+    <!-- Close Button -->
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ButtonStart.SecondaryVariant"
+        android:text="Tutup"
+        android:textColor="@android:color/white"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp" />
+</LinearLayout>
