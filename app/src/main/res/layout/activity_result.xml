@@ -414,7 +414,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="@string/save"
+            android:text="@string/grading"
             android:textColor="#FFFFFF"
             android:backgroundTint="#8BC34A" />
     </LinearLayout>

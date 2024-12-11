@@ -53,7 +53,7 @@
     <string name="dietary_fiber_label">Serat :</string>
     <string name="salt_label">Sodium :</string>
     <string name="value_100">100</string>
-    <string name="save">Simpan</string>
+    <string name="grading">Grading disini !</string>
     <string name="button_gallery_desc">Button Gallery</string>
     <string name="button_capture_desc">Button Capture</string>
     <string name="button_switch_desc">Button Switch Camera</string>
