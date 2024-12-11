@@ -5,6 +5,8 @@ import com.example.nutrirateapp.data.model.LoginResponse
 import com.example.nutrirateapp.data.model.RegisterRequest
 import com.example.nutrirateapp.data.model.RegisterResponse
 import com.example.nutrirateapp.data.model.LogoutResponse
+import com.example.nutrirateapp.data.model.PredictionRequest
+import com.example.nutrirateapp.data.model.PredictionResponse
 import com.example.nutrirateapp.data.model.ProfileResponse
 import com.example.nutrirateapp.data.model.UpdateProfileRequest
 import com.example.nutrirateapp.data.model.UpdateProfileResponse
@@ -29,4 +31,7 @@ interface APIservice {
 
     @PUT("/profile")
     suspend fun updateProfile(@Body request: UpdateProfileRequest): UpdateProfileResponse
+
+    @POST("/predict")
+    suspend fun predict( @Header("Authorization") token: String, @Body request: PredictionRequest): PredictionResponse
 }
