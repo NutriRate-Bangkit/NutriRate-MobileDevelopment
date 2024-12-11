@@ -64,20 +64,18 @@
 
 
                 <TextView
-                    android:id="@+id/tv_name"
+                    android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jonathan Putra"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/black" />
 
 
                 <TextView
-                    android:id="@+id/tv_email"
+                    android:id="@+id/tvEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="jhonputra00@gmail.com"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
             </LinearLayout>

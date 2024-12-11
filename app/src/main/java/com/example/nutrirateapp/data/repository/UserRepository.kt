@@ -1,13 +1,18 @@
 package com.example.nutrirateapp.data.repository
 
 import android.content.Context
+import android.util.Log
 import com.example.nutrirateapp.data.model.LoginRequest
 import com.example.nutrirateapp.data.model.LoginResponse
 import com.example.nutrirateapp.data.model.LogoutResponse
+import com.example.nutrirateapp.data.model.ProfileResponse
 import com.example.nutrirateapp.data.model.RegisterRequest
 import com.example.nutrirateapp.data.model.RegisterResponse
+import com.example.nutrirateapp.data.model.UpdateProfileRequest
+import com.example.nutrirateapp.data.model.UpdateProfileResponse
 import com.example.nutrirateapp.data.pref.UserPreferences
 import com.example.nutrirateapp.data.retrofitAPI.APIconfig
+import kotlinx.coroutines.flow.first
 
 class UserRepository(private val context: Context) {
     private val userPreferences = UserPreferences(context)
@@ -25,6 +30,7 @@ class UserRepository(private val context: Context) {
     suspend fun loginUser(email: String, password: String): Result<LoginResponse> {
         return try {
             val response = apiService.login(LoginRequest(email, password))
+            Log.d("Login", "Token received: ${response.token}")
             userPreferences.saveSession(
                 userId = response.userId,
                 email = response.email,
@@ -40,6 +46,35 @@ class UserRepository(private val context: Context) {
         return try {
             val response = apiService.logout()
             userPreferences.logout()
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun getProfile(): Result<ProfileResponse> {
+        return try {
+            val token = userPreferences.getToken().first() ?: ""
+            Log.d("Profile", "Using token: $token")
+
+            if (token.isEmpty()) {
+                return Result.failure(Exception("Token tidak tersedia"))
+            }
+
+            val authenticatedApiService = APIconfig.getApiService(token)
+            val response = authenticatedApiService.getProfile("Bearer $token")
+
+            Log.d("Profile", "Profile response: $response")
+            Result.success(response)
+        } catch (e: Exception) {
+            Log.e("Profile", "Error getting profile: ${e.message}")
+            Result.failure(e)
+        }
+    }
+
+    suspend fun updateProfile(name: String, email: String, image: String?): Result<UpdateProfileResponse> {
+        return try {
+            val response = apiService.updateProfile(UpdateProfileRequest(name, email, image))
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

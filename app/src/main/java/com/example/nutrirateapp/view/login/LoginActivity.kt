@@ -11,13 +11,11 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.nutrirateapp.R
 import com.example.nutrirateapp.data.pref.UserPreferences
 import com.example.nutrirateapp.databinding.ActivityLoginBinding
 import com.example.nutrirateapp.view.main.MainActivity
 import com.example.nutrirateapp.view.register.RegisterActivity
-import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -105,15 +103,8 @@ class LoginActivity : AppCompatActivity() {
         viewModel.loginResult.observe(this) { result ->
             result.fold(
                 onSuccess = { response ->
-                    lifecycleScope.launch {
-                        userPreferences.saveSession(
-                            userId = response.userId,
-                            email = response.email,
-                            token = response.token
-                        )
-                        Toast.makeText(this@LoginActivity, response.message, Toast.LENGTH_SHORT).show()
-                        navigateToMain()
-                    }
+                    Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show()
+                    navigateToMain()
                 },
                 onFailure = { exception ->
                     Toast.makeText(this, exception.message, Toast.LENGTH_SHORT).show()

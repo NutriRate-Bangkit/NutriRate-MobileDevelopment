@@ -31,19 +31,8 @@ class UserPreferences(private val context: Context) {
 
     fun getToken(): Flow<String?> {
         return context.dataStore.data.map { preferences ->
-            preferences[TOKEN_KEY]
-        }
-    }
-
-    fun getUserId(): Flow<String?> {
-        return context.dataStore.data.map { preferences ->
-            preferences[ID_KEY]
-        }
-    }
-
-    fun getUserEmail(): Flow<String?> {
-        return context.dataStore.data.map { preferences ->
-            preferences[EMAIL_KEY]
+            val token = preferences[TOKEN_KEY]
+            token
         }
     }
 
