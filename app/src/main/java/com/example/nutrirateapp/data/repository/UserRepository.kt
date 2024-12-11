@@ -55,7 +55,6 @@ class UserRepository(private val context: Context) {
     suspend fun getProfile(): Result<ProfileResponse> {
         return try {
             val token = userPreferences.getToken().first() ?: ""
-            Log.d("Profile", "Using token: $token")
 
             if (token.isEmpty()) {
                 return Result.failure(Exception("Token tidak tersedia"))
@@ -64,10 +63,8 @@ class UserRepository(private val context: Context) {
             val authenticatedApiService = APIconfig.getApiService(token)
             val response = authenticatedApiService.getProfile("Bearer $token")
 
-            Log.d("Profile", "Profile response: $response")
             Result.success(response)
         } catch (e: Exception) {
-            Log.e("Profile", "Error getting profile: ${e.message}")
             Result.failure(e)
         }
     }

@@ -18,14 +18,11 @@ class GradingActivity : AppCompatActivity() {
         val hiddenGrades = findViewById<View>(R.id.hiddenGrades)
         val bottomSheetBehavior = BottomSheetBehavior.from(productCard)
 
-        // Set tinggi awal (collapsed)
         bottomSheetBehavior.peekHeight = 1650
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
 
-        // Pastikan hidden grades tersembunyi di awal
         hiddenGrades.visibility = View.GONE
 
-        // Callback untuk BottomSheetBehavior
         bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
@@ -36,7 +33,6 @@ class GradingActivity : AppCompatActivity() {
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                // Optional: Tidak ada aksi tambahan pada onSlide
             }
         })
     }
@@ -45,7 +41,7 @@ class GradingActivity : AppCompatActivity() {
         if (view.visibility != View.VISIBLE) {
             view.visibility = View.VISIBLE
             val fadeIn = AlphaAnimation(0f, 1f)
-            fadeIn.duration = 500 // Durasi animasi dalam milidetik
+            fadeIn.duration = 500
             fadeIn.fillAfter = true
             view.startAnimation(fadeIn)
         }
@@ -54,7 +50,7 @@ class GradingActivity : AppCompatActivity() {
     private fun animateFadeOut(view: View) {
         if (view.visibility == View.VISIBLE) {
             val fadeOut = AlphaAnimation(1f, 0f)
-            fadeOut.duration = 500 // Durasi animasi dalam milidetik
+            fadeOut.duration = 500
             fadeOut.fillAfter = true
             fadeOut.setAnimationListener(object : Animation.AnimationListener {
                 override fun onAnimationStart(animation: Animation?) {}
