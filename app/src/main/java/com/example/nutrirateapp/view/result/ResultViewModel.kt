@@ -21,9 +21,9 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
 
     fun predictGrade(
         productName: String,
-        takaranSaji: Double,
+        gramPerServing: Double,
         protein: Double,
-        energyKkal: Double,
+        energy: Double,
         fat: Double,
         saturatedFat: Double,
         sugars: Double,
@@ -35,9 +35,9 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
                 _isLoading.value = true
                 val result = repository.predictGrade(
                     productName = productName,
-                    takaranSaji = takaranSaji,
+                    gramPerServing = gramPerServing,
                     protein = protein,
-                    energyKkal = energyKkal,
+                    energy = energy,
                     fat = fat,
                     saturatedFat = saturatedFat,
                     sugars = sugars,

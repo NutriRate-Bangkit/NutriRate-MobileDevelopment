@@ -31,7 +31,6 @@ class EditProfileDialogFragment(private val onSave: (String) -> Unit) : DialogFr
             window.setGravity(Gravity.CENTER)
 
 
-            // Tambahkan margin 16dp secara programmatically
             window.decorView.setPadding(
                 convertDpToPx(16), // Left
                 convertDpToPx(16), // Top

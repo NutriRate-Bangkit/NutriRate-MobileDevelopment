@@ -1,8 +1,8 @@
 package com.example.nutrirateapp.data.repository
 
 import android.content.Context
+import com.example.nutrirateapp.data.model.PredictionRequest
 import com.example.nutrirateapp.data.model.PredictionResponse
-import com.example.nutrirateapp.data.nutritioncalculate.NutritionCalculate
 import com.example.nutrirateapp.data.pref.UserPreferences
 import com.example.nutrirateapp.data.retrofitAPI.APIconfig
 import kotlinx.coroutines.flow.first
@@ -13,9 +13,9 @@ class GradingRepository(private val context: Context) {
 
     suspend fun predictGrade(
         productName: String,
-        takaranSaji: Double,
+        gramPerServing: Double,
         protein: Double,
-        energyKkal: Double,
+        energy: Double,
         fat: Double,
         saturatedFat: Double,
         sugars: Double,
@@ -28,16 +28,16 @@ class GradingRepository(private val context: Context) {
                 return Result.failure(Exception("Token tidak tersedia"))
             }
 
-            val predictionRequest = NutritionCalculate.convertToPredictionRequest(
+            val predictionRequest = PredictionRequest(
                 productName = productName,
-                takaranSaji = takaranSaji,
-                energyKkal = energyKkal,
                 protein = protein,
+                energy = energy,
                 fat = fat,
                 saturatedFat = saturatedFat,
                 sugars = sugars,
                 fiber = fiber,
-                sodium = sodium
+                sodium = sodium,
+                gramPerServing = gramPerServing
             )
 
             val authenticatedApiService = APIconfig.getApiService(token)
