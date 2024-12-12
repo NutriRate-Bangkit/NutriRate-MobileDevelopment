@@ -1,5 +1,6 @@
 package com.example.nutrirateapp.view.main.ui.history
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nutrirateapp.R
 import com.example.nutrirateapp.databinding.FragmentHistoryBinding
+import com.example.nutrirateapp.view.detail.DetailHistoryActivity
 
 class HistoryFragment : Fragment() {
 
@@ -22,14 +24,22 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
 
         // Setup RecyclerView
-        binding.storyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.storyRecyclerView.adapter = HistoryAdapter(
-            listOf(
-                HistoryItem(R.drawable.ic_salad, "Salad", "Grade A"),
-                HistoryItem(R.drawable.ic_salad, "Vegetable Bowl", "Grade B"),
-                HistoryItem(R.drawable.ic_salad, "Fruit Mix", "Grade A")
-            )
+        val historyItems = listOf(
+            HistoryItem("CIKI RING", "B", "Ujang"),
+            HistoryItem("COKLAT", "C", "Agus"),
+            HistoryItem("SILVERQUEEN", "A", "Zare")
         )
+
+        binding.storyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.storyRecyclerView.adapter = HistoryAdapter(historyItems) { selectedItem ->
+            val intent = Intent(requireContext(), DetailHistoryActivity::class.java).apply {
+                putExtra("PRODUCT_NAME", selectedItem.title)
+                putExtra("GRADE", selectedItem.grade)
+                putExtra("USER", selectedItem.user)
+            }
+            startActivity(intent)
+        }
+
 
         return binding.root
     }
@@ -39,3 +49,4 @@ class HistoryFragment : Fragment() {
         _binding = null
     }
 }
+

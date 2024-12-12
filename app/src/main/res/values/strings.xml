@@ -11,8 +11,6 @@
     <string name="textStart">Let\'s Start!</string>
 
 
-
-
     <string name="regis_kenalan">Kenalan Dulu, Yuk</string>
     <string name="regis_sudahakun"><u>Sudah punya akun</u></string>
     <string name="regis_kitakenalan">Kita kenalan sambil bikin akun dulu ya... Kalau kamu sudah punya akun, masuk disini</string>
@@ -31,8 +29,6 @@
     <string name="login_selamat">Selamat Datang !</string>
     <string name="login_selamatdatang">Selamat datang ya...Masukin akun kamu dulu yuk, belum punya akun? Buat disini</string>
     <string name="login_masukdisini">Masuk Disini Ya !</string>
-
-
 
 
     <string name="nutrition_facts">Nutrition Facts</string>

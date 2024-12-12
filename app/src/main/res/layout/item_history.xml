@@ -9,7 +9,7 @@
     android:layout_marginBottom="8dp">
 
     <ImageView
-        android:id="@+id/imageViewProduct"
+        android:id="@+id/itemImage"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:src="@drawable/ic_salad"
@@ -24,7 +24,7 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:id="@+id/textViewProductName"
+            android:id="@+id/itemTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama Produk"
@@ -32,11 +32,35 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grade"
+                android:layout_marginEnd="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/itemGrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/textViewProductGrade"
+            android:id="@+id/itemUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grade A"
+            android:text="User"
             android:textSize="14sp"
             android:textColor="@color/black" />
 
