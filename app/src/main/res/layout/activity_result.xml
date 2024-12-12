@@ -16,7 +16,6 @@
         android:clipToPadding="false"
         android:layout_gravity="center">
 
-        <!-- Header Title -->
         <TextView
             android:id="@+id/nutritionFactsTitle"
             android:layout_width="match_parent"
@@ -27,7 +26,6 @@
             android:textColor="#000000"
             android:gravity="center"/>
 
-        <!-- Horizontal Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
@@ -35,7 +33,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
 
-        <!-- Product Name Label -->
         <TextView
             android:id="@+id/productNameLabel"
             android:layout_width="match_parent"
@@ -46,7 +43,6 @@
             android:textColor="#000000"
             android:layout_marginBottom="8dp" />
 
-        <!-- Product Name EditText -->
         <EditText
             android:id="@+id/productNameEditText"
             android:layout_width="match_parent"
@@ -57,7 +53,6 @@
             android:background="@null"
             android:padding="8dp" />
 
-        <!-- Horizontal Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
@@ -65,7 +60,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp" />
 
-        <!-- Protein Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,14 +101,12 @@
                 android:gravity="center_vertical|end" />
         </LinearLayout>
 
-        <!-- Horizontal Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="#000000"
             android:layout_marginBottom="8dp" />
 
-        <!-- Protein Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,7 +148,6 @@
                 android:gravity="center_vertical|end" />
         </LinearLayout>
 
-        <!-- Energy Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -198,7 +189,6 @@
                 android:gravity="center_vertical|end" />
         </LinearLayout>
 
-        <!-- Fat Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -240,7 +230,6 @@
                 android:gravity="center_vertical|end" />
         </LinearLayout>
 
-        <!-- Saturated Fat Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -282,7 +271,6 @@
                 android:gravity="center_vertical|end" />
         </LinearLayout>
 
-        <!-- Sugar Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -365,7 +353,6 @@
                 android:gravity="center_vertical|end" />
         </LinearLayout>
 
-        <!-- Sugar Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -416,7 +403,6 @@
             android:indeterminateTint="#8BC34A"
             android:layout_marginTop="16dp"/>
 
-        <!-- Button -->
         <Button
             android:id="@+id/gradingButton"
             android:layout_width="wrap_content"

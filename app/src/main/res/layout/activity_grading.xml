@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="#DCFAD7">
 
-    <!-- Grade Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +36,6 @@
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Bottom Sheet -->
     <androidx.cardview.widget.CardView
         android:id="@+id/productCard"
         android:layout_width="match_parent"
@@ -59,7 +57,6 @@
                     android:layout_height="3dp"
                     android:background="@color/black" />
 
-                <!-- Product Name -->
                 <TextView
                     android:id="@+id/productNameTextView"
                     android:layout_width="match_parent"
@@ -72,7 +69,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp" />
 
-                <!-- Nutrition Facts Label -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -82,7 +78,6 @@
                     android:textColor="#000000"
                     android:layout_marginBottom="4dp" />
 
-                <!-- Nutrition Facts -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -337,7 +332,6 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- Level Grading Section -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -348,13 +342,11 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="8dp"/>
 
-                <!-- Grades A and B -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Grade A -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -377,7 +369,6 @@
                             android:layout_marginStart="8dp" />
                     </LinearLayout>
 
-                    <!-- Description for Grade A -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -388,7 +379,6 @@
                         android:textColor="#666666"
                         android:layout_marginBottom="8dp" />
 
-                    <!-- Grade B -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -411,7 +401,6 @@
                             android:layout_marginStart="8dp" />
                     </LinearLayout>
 
-                    <!-- Description for Grade B -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -430,7 +419,6 @@
                     android:orientation="vertical"
                     android:visibility="gone">
 
-                    <!-- Grade C -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -453,7 +441,6 @@
                             android:layout_marginStart="8dp" />
                     </LinearLayout>
 
-                    <!-- Description for Grade C -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -464,7 +451,6 @@
                         android:textColor="#666666"
                         android:layout_marginBottom="8dp" />
 
-                    <!-- Grade D -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -498,7 +484,6 @@
                         android:layout_marginStart="30dp"
                         android:layout_marginBottom="8dp" />
 
-                    <!-- Grade E -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -521,7 +506,6 @@
                             android:layout_marginStart="8dp" />
                     </LinearLayout>
 
-                    <!-- Description for Grade E -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -534,7 +518,6 @@
                 </LinearLayout>
 
 
-                <!-- OK Button -->
                 <Button
                     android:id="@+id/okButton"
                     android:layout_width="wrap_content"

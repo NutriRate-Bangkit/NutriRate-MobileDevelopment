@@ -6,7 +6,6 @@
     android:background="@drawable/form_edit_profile"
     android:gravity="center_horizontal">
 
-    <!-- Title -->
     <TextView
         android:id="@+id/tv_change_password_title"
         android:layout_width="wrap_content"
@@ -27,7 +26,6 @@
         android:gravity="center"
         android:layout_marginBottom="16dp" />
 
-    <!-- Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

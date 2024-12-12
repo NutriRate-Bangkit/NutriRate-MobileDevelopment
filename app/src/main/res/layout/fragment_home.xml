@@ -108,7 +108,6 @@
         tools:alpha="100" />
 
 
-    <!-- Slogan Text -->
     <TextView
         android:id="@+id/slogan"
         android:layout_width="0dp"
@@ -127,7 +126,6 @@
         tools:alpha="100" />
 
 
-    <!-- Image View -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -142,7 +140,6 @@
         app:srcCompat="@drawable/img_home" />
 
 
-    <!-- Title Text -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="0dp"
@@ -161,7 +158,6 @@
         tools:alpha="100" />
 
 
-    <!-- Description Text -->
     <TextView
         android:id="@+id/descTextView"
         android:layout_width="0dp"
@@ -181,7 +177,6 @@
         tools:alpha="100" />
 
 
-    <!-- Horizontal Guideline -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"
         android:layout_width="wrap_content"

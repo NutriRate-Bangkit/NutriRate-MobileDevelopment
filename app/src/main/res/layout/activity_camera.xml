@@ -5,8 +5,6 @@
     android:layout_height="match_parent">
 
 
-
-    <!-- Camera Preview -->
     <androidx.camera.view.PreviewView
         android:id="@+id/cameraPreview"
         android:layout_width="match_parent"
@@ -14,7 +12,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cameraControls" />
 
-    <!-- Bingkai Pemindaian -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/scanFrame"
         android:layout_width="340dp"
@@ -24,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Sudut Kiri Atas -->
         <View
             android:layout_width="48dp"
             android:layout_height="3dp"
@@ -39,7 +35,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Sudut Kanan Atas -->
         <View
             android:layout_width="48dp"
             android:layout_height="3dp"
@@ -54,7 +49,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Sudut Kiri Bawah -->
         <View
             android:layout_width="48dp"
             android:layout_height="3dp"
@@ -69,7 +63,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Sudut Kanan Bawah -->
         <View
             android:layout_width="48dp"
             android:layout_height="3dp"
@@ -98,7 +91,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Gallery Button -->
         <ImageButton
             android:id="@+id/galleryButton"
             android:layout_width="48dp"
@@ -109,7 +101,6 @@
             android:src="@drawable/ic_gallery"
             android:background="@null" />
 
-        <!-- Capture Button -->
         <ImageButton
             android:id="@+id/captureButton"
             android:layout_width="72dp"
@@ -121,7 +112,6 @@
             android:src="@drawable/ic_capture"
             android:background="@null" />
 
-        <!-- Switch Camera Button -->
         <ImageButton
             android:id="@+id/switchCameraButton"
             android:layout_width="48dp"
