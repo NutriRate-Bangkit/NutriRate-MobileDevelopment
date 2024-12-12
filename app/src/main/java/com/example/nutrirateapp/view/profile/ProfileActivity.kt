@@ -2,7 +2,6 @@ package com.example.nutrirateapp.view.profile
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -34,7 +33,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val tvEditProfile = findViewById<TextView>(R.id.tv_edit_profile)
-        val tvName = findViewById<TextView>(R.id.tv_name)
+        val tvName = findViewById<TextView>(R.id.tvName)
 
         tvEditProfile.setOnClickListener {
             // Show Edit Profile Dialog
@@ -67,14 +66,12 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.profileResult.observe(this) { result ->
             result.fold(
                 onSuccess = { profile ->
-                    Log.d("Profile", "Success: $profile")  // Tambahkan ini
                     binding.apply {
                         tvName.text = profile.name
                         tvEmail.text = profile.email
                     }
                 },
                 onFailure = { exception ->
-                    Log.e("Profile", "Error: ${exception.message}")  // Tambahkan ini
                     Toast.makeText(
                         this,
                         "Failed to load profile: ${exception.message}",

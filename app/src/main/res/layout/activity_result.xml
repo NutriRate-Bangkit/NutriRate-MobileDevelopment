@@ -407,9 +407,18 @@
                 android:gravity="center_vertical|end" />
         </LinearLayout>
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminateTint="#8BC34A"
+            android:layout_marginTop="16dp"/>
+
         <!-- Button -->
         <Button
-            android:id="@+id/saveButton"
+            android:id="@+id/gradingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
