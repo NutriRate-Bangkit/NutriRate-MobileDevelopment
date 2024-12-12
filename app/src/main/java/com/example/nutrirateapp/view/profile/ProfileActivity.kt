@@ -7,6 +7,8 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.example.nutrirateapp.R
 import com.example.nutrirateapp.databinding.ActivityProfileBinding
 import com.example.nutrirateapp.view.login.LoginActivity
 
@@ -73,6 +75,12 @@ class ProfileActivity : AppCompatActivity() {
                     binding.apply {
                         tvName.text = profile.name
                         tvEmail.text = profile.email
+                        Glide.with(this@ProfileActivity)
+                            .load(profile.image)
+                            .circleCrop()
+                            .placeholder(R.drawable.img_user)
+                            .error(R.drawable.img_user)
+                            .into(ivProfileImage)
                     }
                 },
                 onFailure = { exception ->
