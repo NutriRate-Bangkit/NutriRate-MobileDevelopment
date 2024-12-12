@@ -235,13 +235,13 @@ class CameraActivity : AppCompatActivity() {
         val sodiumRegex = Regex("(?i)Natrium\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
 
         val servinSize = servingSizeRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
-        val protein = proteinRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
-        val energy = energyRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
-        val fat = fatRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
-        val saturatedFat = saturatedFatRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
-        val sugar = sugarRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
-        val fiber = fiberRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
-        val sodium = sodiumRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
+        val protein = proteinRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
+        val energy = energyRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
+        val fat = fatRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
+        val saturatedFat = saturatedFatRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
+        val sugar = sugarRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
+        val fiber = fiberRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
+        val sodium = sodiumRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
 
         val intent = Intent(this, ResultActivity::class.java)
         intent.putExtra("SERVING", servinSize)
@@ -276,14 +276,12 @@ class CameraActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        // Kembali ke MainActivity
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         }
         startActivity(intent)
-        finish() // Mengakhiri CameraActivity
+        finish()
 
-        // Memanggil implementasi bawaan
         super.onBackPressed()
     }
 

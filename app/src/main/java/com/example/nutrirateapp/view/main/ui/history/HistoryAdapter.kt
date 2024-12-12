@@ -15,6 +15,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
             binding.apply {
                 itemTitle.text = history.productName
                 itemGrade.text = history.grade
+                itemNama.text = history.name
                 itemGrade.setTextColor(getGradeColor(history.grade))
             }
         }

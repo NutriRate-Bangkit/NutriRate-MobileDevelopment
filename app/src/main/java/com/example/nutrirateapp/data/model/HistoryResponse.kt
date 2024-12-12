@@ -7,9 +7,10 @@ data class HistoryResponse(
 data class HistoryItem(
     val id: String,
     val userId: String,
+    val name: String,
     val originalInputs: OriginalInputs,
     val productName: String,
     val gramPerServing: Double,
     val grade: String,
-    val timestamp: Any  // Bisa dikonversi ke Date nanti
+    val timestamp: Any
 )
