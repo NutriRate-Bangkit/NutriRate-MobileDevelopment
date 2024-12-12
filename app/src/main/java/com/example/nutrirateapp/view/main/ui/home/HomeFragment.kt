@@ -26,18 +26,7 @@ class HomeFragment : Fragment() {
         binding.titleTextView.alpha = 1f
         binding.descTextView.alpha = 1f
 
-
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Klik pada img_profile untuk pindah ke ProfileActivity
-        binding.cdvPhoto.setOnClickListener {
-            val intent = Intent(requireContext(), ProfileActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onDestroyView() {
