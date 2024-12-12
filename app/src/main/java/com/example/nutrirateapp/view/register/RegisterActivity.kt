@@ -1,5 +1,6 @@
 package com.example.nutrirateapp.view.register
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.text.Spannable
@@ -32,6 +33,8 @@ class RegisterActivity : AppCompatActivity() {
         setupClickableTexts()
         setupRegisterButton()
         setupObservers()
+
+        animateFormContainer()
     }
 
     private fun setupClickableTexts() {
@@ -147,5 +150,22 @@ class RegisterActivity : AppCompatActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun animateFormContainer() {
+        binding.formContainer.apply {
+            visibility = View.INVISIBLE
+
+            post {
+                translationY = height.toFloat()
+                ObjectAnimator.ofFloat(this, View.TRANSLATION_Y, 0f).apply {
+                    duration = 700
+                    startDelay = 300
+                    start()
+                }
+
+                visibility = View.VISIBLE
+            }
+        }
     }
 }

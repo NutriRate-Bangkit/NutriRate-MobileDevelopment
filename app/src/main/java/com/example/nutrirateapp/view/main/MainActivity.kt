@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.nutrirateapp.R
 import com.example.nutrirateapp.databinding.ActivityMainBinding
 import com.example.nutrirateapp.view.camera.CameraActivity
+import com.example.nutrirateapp.view.profile.ProfileActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CameraActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             }
+            startActivity(intent)
+        }
+
+        binding.cdvPhoto.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
     }

@@ -1,5 +1,6 @@
 package com.example.nutrirateapp.view.login
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.text.Spannable
@@ -33,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         setupClickableTexts()
         setupLoginButton()
         setupObservers()
+        animateFormContainer()
     }
 
     private fun setupClickableTexts() {
@@ -129,5 +131,26 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun animateFormContainer() {
+        binding.formContainer.apply {
+            visibility = View.INVISIBLE // Awal form tidak terlihat
+
+            post {
+                // Atur posisi awal di luar layar
+                translationY = height.toFloat()
+
+                // Buat animasi slide dari bawah ke posisi normal
+                ObjectAnimator.ofFloat(this, View.TRANSLATION_Y, 0f).apply {
+                    duration = 700 // Durasi animasi dalam milidetik
+                    startDelay = 300 // Waktu tunggu sebelum animasi mulai (opsional)
+                    start()
+                }
+
+                // Atur visible setelah animasi selesai
+                visibility = View.VISIBLE
+            }
+        }
     }
 }
