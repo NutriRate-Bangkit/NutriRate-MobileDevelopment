@@ -1,5 +1,6 @@
     package com.example.nutrirateapp.view.result
 
+    import android.content.Intent
     import android.os.Bundle
     import android.util.Log
     import android.view.View
@@ -8,6 +9,7 @@
     import androidx.activity.viewModels
     import androidx.appcompat.app.AppCompatActivity
     import com.example.nutrirateapp.databinding.ActivityResultBinding
+    import com.example.nutrirateapp.view.grading.GradingActivity
 
     class ResultActivity : AppCompatActivity() {
         private lateinit var binding: ActivityResultBinding
@@ -68,7 +70,6 @@
         }
 
         private fun validateInput(): Boolean {
-            Log.d("ResultActivity", "Validating input")
 
             val productName = binding.productNameEditText.text.toString()
             if (productName.isEmpty()) {
@@ -89,24 +90,18 @@
             viewModel.predictionResult.observe(this) { result ->
                 result.fold(
                     onSuccess = { response ->
-                        Log.d("ResultActivity", """
-                    Prediction success:
-                    Grade: ${response.grade}
-                    Product: ${response.productName}
-                    Original Values:
-                    - Protein: ${response.originalInputs.protein}
-                    - Energy: ${response.originalInputs.energy}
-                    - Fat: ${response.originalInputs.fat}
-                    - Saturated Fat: ${response.originalInputs.saturatedFat}
-                    - Sugars: ${response.originalInputs.sugars}
-                    - Fiber: ${response.originalInputs.fiber}
-                    - Sodium: ${response.originalInputs.sodium}
-                """.trimIndent())
-                        Toast.makeText(this, "Grade: ${response.grade}", Toast.LENGTH_SHORT).show()
+                        val gramPerServing = binding.servingEditText.text.toString().toDoubleOrNull() ?: 0.0
+                        val intent = Intent(this, GradingActivity::class.java).apply {
+                            putExtra("GRADE", response.grade)
+                            putExtra("PRODUCT_NAME", response.productName)
+                            putExtra("ORIGINAL_INPUTS", response.originalInputs)
+                            putExtra("GRAM_PER_SERVING", gramPerServing)
+                        }
+                        startActivity(intent)
+                        finish()
                     },
                     onFailure = { exception ->
-                        Log.e("ResultActivity", "Prediction error: ${exception.message}")
-                        Toast.makeText(this, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, exception.message, Toast.LENGTH_SHORT).show()
                     }
                 )
             }

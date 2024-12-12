@@ -2,6 +2,7 @@ package com.example.nutrirateapp.data.repository
 
 import android.content.Context
 import android.util.Log
+import com.example.nutrirateapp.data.model.HistoryResponse
 import com.example.nutrirateapp.data.model.LoginRequest
 import com.example.nutrirateapp.data.model.LoginResponse
 import com.example.nutrirateapp.data.model.LogoutResponse
@@ -72,6 +73,19 @@ class UserRepository(private val context: Context) {
     suspend fun updateProfile(name: String, email: String, image: String?): Result<UpdateProfileResponse> {
         return try {
             val response = apiService.updateProfile(UpdateProfileRequest(name, email, image))
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun getHistory(): Result<HistoryResponse> {
+        return try {
+            val token = userPreferences.getToken().first() ?: ""
+            if (token.isEmpty()) {
+                return Result.failure(Exception("Token tidak tersedia"))
+            }
+            val response = apiService.getHistory("Bearer $token")
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

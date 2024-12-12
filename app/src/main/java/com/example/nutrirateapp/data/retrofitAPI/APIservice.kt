@@ -1,5 +1,6 @@
 package com.example.nutrirateapp.data.retrofitAPI
 
+import com.example.nutrirateapp.data.model.HistoryResponse
 import com.example.nutrirateapp.data.model.LoginRequest
 import com.example.nutrirateapp.data.model.LoginResponse
 import com.example.nutrirateapp.data.model.RegisterRequest
@@ -34,4 +35,7 @@ interface APIservice {
 
     @POST("/predict")
     suspend fun predict( @Header("Authorization") token: String, @Body request: PredictionRequest): PredictionResponse
+
+    @GET("/history")
+    suspend fun getHistory(@Header("Authorization") token: String): HistoryResponse
 }

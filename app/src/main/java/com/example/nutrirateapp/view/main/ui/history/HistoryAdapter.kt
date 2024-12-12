@@ -1,41 +1,50 @@
 package com.example.nutrirateapp.view.main.ui.history
 
+import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nutrirateapp.R
+import com.example.nutrirateapp.data.model.HistoryItem
+import com.example.nutrirateapp.databinding.ItemHistoryBinding
 
-class HistoryAdapter(
-    private val items: List<HistoryItem>,
-    private val onItemClick: (HistoryItem) -> Unit
-) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
+class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
+    private val historyList = mutableListOf<HistoryItem>()
 
-    inner class HistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val titleTextView: TextView = itemView.findViewById(R.id.itemTitle)
-        private val gradeTextView: TextView = itemView.findViewById(R.id.itemGrade)
-        private val userTextView: TextView = itemView.findViewById(R.id.itemUser)
+    class ViewHolder(private val binding: ItemHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(history: HistoryItem) {
+            binding.apply {
+                itemTitle.text = history.productName
+                itemGrade.text = history.grade
+                itemGrade.setTextColor(getGradeColor(history.grade))
+            }
+        }
 
-        fun bind(item: HistoryItem) {
-            titleTextView.text = item.title
-            gradeTextView.text = item.grade
-            userTextView.text = item.user
-
-            itemView.setOnClickListener {
-                onItemClick(item)
+        private fun getGradeColor(grade: String): Int {
+            return when (grade) {
+                "A" -> Color.parseColor("#008000")
+                "B" -> Color.parseColor("#FFD700")
+                "C" -> Color.parseColor("#FFA500")
+                "D" -> Color.parseColor("#FF4500")
+                "E" -> Color.parseColor("#FF0000")
+                else -> Color.BLACK
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_history, parent, false)
-        return HistoryViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ItemHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-        holder.bind(items[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(historyList[position])
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount() = historyList.size
+
+    fun setData(newHistoryList: List<HistoryItem>) {
+        historyList.clear()
+        historyList.addAll(newHistoryList)
+        notifyDataSetChanged()
+    }
 }

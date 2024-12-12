@@ -1,5 +1,8 @@
 package com.example.nutrirateapp.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class PredictionRequest(
     val productName: String,
     val protein: Double,
@@ -18,6 +21,7 @@ data class PredictionResponse(
     val originalInputs: OriginalInputs
 )
 
+@Parcelize
 data class OriginalInputs(
     val protein: Double,
     val energy: Double,
@@ -26,4 +30,4 @@ data class OriginalInputs(
     val sugars: Double,
     val fiber: Double,
     val sodium: Double
-)
+) : Parcelable
