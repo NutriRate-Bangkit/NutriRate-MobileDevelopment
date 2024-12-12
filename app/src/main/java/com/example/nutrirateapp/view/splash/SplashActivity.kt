@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
 
         userPreferences = UserPreferences(this)
 
-        val appName = findViewById<TextView>(R.id.app_name)
+        val appName = findViewById<ImageView>(R.id.app_name)
         val animator = ObjectAnimator.ofFloat(appName, "translationY", -500f, 0f)
         animator.duration = 3000
         animator.interpolator = AccelerateDecelerateInterpolator()

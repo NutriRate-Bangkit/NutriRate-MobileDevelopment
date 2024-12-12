@@ -6,6 +6,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -46,6 +47,7 @@ class RegisterActivity : AppCompatActivity() {
         text.indexOf("disini").let { startIndex ->
             if (startIndex >= 0) {
                 val endIndex = startIndex + "disini".length
+
 
                 val clickableSpan = object : ClickableSpan() {
                     override fun onClick(widget: View) {
@@ -92,6 +94,9 @@ class RegisterActivity : AppCompatActivity() {
         if (email.isEmpty()) {
             binding.emailEditText.error = "Email wajib diisi"
             isValid = false
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.emailEditText.error = "Format email tidak valid"
+            isValid = false
         }
 
         if (password.isEmpty()) {
@@ -101,7 +106,6 @@ class RegisterActivity : AppCompatActivity() {
             binding.passwordEditText.error = "Password minimal 8 karakter"
             isValid = false
         }
-
         return isValid
     }
 

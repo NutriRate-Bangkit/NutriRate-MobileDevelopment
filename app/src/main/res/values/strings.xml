@@ -21,12 +21,10 @@
     <string name="regis_dipanggil">Kamu mau dipanggil siapa?</string>
     <string name="regis_email">Email</string>
     <string name="regis_contohemail">Masukin email kamu yuk! Contoh: abc@gmail.com</string>
+    <string name="email_required">Email wajib diisi</string>
     <string name="regis_password">Password</string>
     <string name="regis_buatakun">Buat Akun</string>
     <string name="regis_bikinpassword">Bikin password nya juga ya!</string>
-
-
-
 
     <string name="login_password">Masukin password juga ya !</string>
     <string name="login_belumakun"><u>Belum punya akun</u></string>

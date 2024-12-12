@@ -3,8 +3,6 @@ package com.example.nutrirateapp.view.customview
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.Patterns
 import androidx.appcompat.widget.AppCompatEditText
@@ -14,49 +12,40 @@ import com.example.nutrirateapp.R
 
 class EmailCustomView : AppCompatEditText {
 
-
     private lateinit var emailIcon: Drawable
-
 
     constructor(context: Context) : super(context) {
         init()
     }
+
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init()
     }
+
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init()
     }
-
 
     private fun init() {
         // Set the email icon drawable
         emailIcon = ContextCompat.getDrawable(context, R.drawable.ic_email) as Drawable
         compoundDrawablePadding = convertDpToPx(8) // Add padding of 8dp
         setEditCompoundDrawables(startOfTheText = emailIcon)
-
-
-        addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                // Do nothing.
-            }
-
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                // Validate email format
-                if (!Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
-                    setError(resources.getString(R.string.invalid_email), null)
-                } else {
-                    error = null
-                }
-            }
-
-
-            override fun afterTextChanged(s: Editable) {
-            }
-        })
     }
 
+    fun validateEmail(): Boolean {
+        val inputText = text?.toString()?.trim() ?: ""
+        return if (inputText.isEmpty()) {
+            error = resources.getString(R.string.email_required)
+            false
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(inputText).matches()) {
+            error = resources.getString(R.string.invalid_email)
+            false
+        } else {
+            error = null
+            true
+        }
+    }
 
     private fun setEditCompoundDrawables(
         startOfTheText: Drawable? = null,
@@ -71,7 +60,6 @@ class EmailCustomView : AppCompatEditText {
             bottomOfTheText
         )
     }
-
 
     private fun convertDpToPx(dp: Int): Int {
         val density = resources.displayMetrics.density

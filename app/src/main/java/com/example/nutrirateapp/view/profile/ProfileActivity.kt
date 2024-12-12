@@ -2,6 +2,7 @@ package com.example.nutrirateapp.view.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -50,6 +51,14 @@ class ProfileActivity : AppCompatActivity() {
             val dialog = ChangePasswordFragment()
             dialog.show(supportFragmentManager, "ChangePasswordDialog")
         }
+
+        val tvDeleteAccount = findViewById<TextView>(R.id.tv_delete_account)
+        tvDeleteAccount.setOnClickListener {
+            val dialog = DeleteAccountDialog { result ->
+                // Tambahkan logika akun dihapus
+            }
+            dialog.show(supportFragmentManager, "DeleteAccountDialog")
+        }
     }
 
     private fun setupLogoutButton() {
@@ -66,12 +75,14 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.profileResult.observe(this) { result ->
             result.fold(
                 onSuccess = { profile ->
+                    Log.d("Profile", "Success: $profile")  // Tambahkan ini
                     binding.apply {
                         tvName.text = profile.name
                         tvEmail.text = profile.email
                     }
                 },
                 onFailure = { exception ->
+                    Log.e("Profile", "Error: ${exception.message}")  // Tambahkan ini
                     Toast.makeText(
                         this,
                         "Failed to load profile: ${exception.message}",
