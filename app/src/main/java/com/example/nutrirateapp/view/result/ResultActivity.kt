@@ -116,6 +116,7 @@
             Log.d("ResultActivity", "Setting nutrition values from intent")
 
             intent.apply {
+                binding.servingEditText.setText(getStringExtra("SERVING") ?: "Not Found")
                 binding.proteinEditText.setText(getStringExtra("PROTEIN") ?: "Not found")
                 binding.energyEditText.setText(getStringExtra("ENERGY") ?: "Not found")
                 binding.fatEditText.setText(getStringExtra("FAT") ?: "Not found")

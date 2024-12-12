@@ -225,14 +225,16 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun processNutritionText(detectedText: String) {
+        val servingSizeRegex = Regex("(?i)Takaran Saji\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
         val proteinRegex = Regex("(?i)Protein\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val energyRegex = Regex("(?i)Energy\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val fatRegex = Regex("(?i)Fat\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val saturatedFatRegex = Regex("(?i)Saturated Fat\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val sugarRegex = Regex("(?i)Sugars\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val fiberRegex = Regex("(?i)Fiber\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val sodiumRegex = Regex("(?i)Sodium\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val energyRegex = Regex("(?i)Energi\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val fatRegex = Regex("(?i)Lemak\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val saturatedFatRegex = Regex("(?i)Lemak Jenuh\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val sugarRegex = Regex("(?i)Gula\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val fiberRegex = Regex("(?i)Serat Pangan\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val sodiumRegex = Regex("(?i)Natrium\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
 
+        val servinSize = servingSizeRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
         val protein = proteinRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
         val energy = energyRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
         val fat = fatRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
@@ -242,6 +244,7 @@ class CameraActivity : AppCompatActivity() {
         val sodium = sodiumRegex.find(detectedText)?.groups?.get(1)?.value ?: "Not found"
 
         val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra("SERVING", servinSize)
         intent.putExtra("PROTEIN", protein)
         intent.putExtra("ENERGY", energy)
         intent.putExtra("FAT", fat)
