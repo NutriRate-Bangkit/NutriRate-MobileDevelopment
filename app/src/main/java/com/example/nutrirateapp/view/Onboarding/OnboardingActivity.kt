@@ -21,19 +21,19 @@ class OnboardingActivity : AppCompatActivity() {
             OnboardingFragment.newInstance(
                 R.drawable.nutri_onboarding1,
                 "Grading Makanan dengan Mudah",
-                "NutriRate membantu Anda menilai makanan berdasarkan Nutrition Facts. Temukan pilihan terbaik untuk pola makan sehat Anda.",
+                "NutriRate membantu Anda menilai makanan berdasarkan Nutrition Facts.",
                 false
             ),
             OnboardingFragment.newInstance(
                 R.drawable.nutri_onboarding2,
                 "Analisis Gizi Instan",
-                "Scan label Nutrition Facts dan dapatkan informasi yang mudah dipahami, lengkap dengan rekomendasi kesehatan.",
+                "Scan label Nutrition Facts dan dapatkan informasi yang mudah dipahami.",
                 false
             ),
             OnboardingFragment.newInstance(
                 R.drawable.nutri_onboarding3,
                 "Personalisasi Gaya Hidup Sehat Anda",
-                "Sesuaikan kebutuhan nutrisi Anda dengan rekomendasi yang dipersonalisasi berdasarkan preferensi dan tujuan kesehatan Anda.",
+                "Sesuaikan kebutuhan nutrisi Anda dengan rekomendasi berdasarkan tujuan kesehatan Anda.",
                 true
             )
         )
