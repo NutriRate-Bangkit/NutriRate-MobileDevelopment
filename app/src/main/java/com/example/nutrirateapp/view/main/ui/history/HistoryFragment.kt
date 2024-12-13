@@ -36,7 +36,16 @@ class HistoryFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        historyAdapter = HistoryAdapter()
+        historyAdapter = HistoryAdapter().apply {
+            setOnItemClickCallback { historyItem ->
+                // Navigate ke DetailHistoryActivity dengan data history
+                val intent = Intent(requireContext(), DetailHistoryActivity::class.java).apply {
+                    putExtra("HISTORY_ITEM", historyItem)
+                }
+                startActivity(intent)
+            }
+        }
+
         binding.storyRecyclerView.apply {
             adapter = historyAdapter
             layoutManager = LinearLayoutManager(context)

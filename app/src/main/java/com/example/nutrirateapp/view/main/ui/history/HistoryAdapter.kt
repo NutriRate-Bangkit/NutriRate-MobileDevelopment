@@ -9,14 +9,24 @@ import com.example.nutrirateapp.databinding.ItemHistoryBinding
 
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     private val historyList = mutableListOf<HistoryItem>()
+    private var onItemClickCallback: ((HistoryItem) -> Unit)? = null
+
+    fun setOnItemClickCallback(callback: (HistoryItem) -> Unit) {
+        onItemClickCallback = callback
+    }
 
     class ViewHolder(private val binding: ItemHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(history: HistoryItem) {
+        fun bind(history: HistoryItem, onItemClickCallback: ((HistoryItem) -> Unit)?) {
             binding.apply {
                 itemTitle.text = history.productName
                 itemGrade.text = history.grade
                 itemNama.text = history.name
                 itemGrade.setTextColor(getGradeColor(history.grade))
+
+                // Set click listener untuk seluruh item
+                root.setOnClickListener {
+                    onItemClickCallback?.invoke(history)
+                }
             }
         }
 
@@ -38,7 +48,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(historyList[position])
+        holder.bind(historyList[position], onItemClickCallback)
     }
 
     override fun getItemCount() = historyList.size
