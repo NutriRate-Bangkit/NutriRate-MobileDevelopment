@@ -11,11 +11,15 @@ import com.example.nutrirateapp.data.model.PredictionResponse
 import com.example.nutrirateapp.data.model.ProfileResponse
 import com.example.nutrirateapp.data.model.UpdateProfileRequest
 import com.example.nutrirateapp.data.model.UpdateProfileResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Part
 
 interface APIservice {
     @POST("/auth/register")
@@ -31,7 +35,14 @@ interface APIservice {
     suspend fun getProfile(@Header("Authorization") token: String): ProfileResponse
 
     @PUT("/profile")
-    suspend fun updateProfile(@Body request: UpdateProfileRequest): UpdateProfileResponse
+    suspend fun updateProfile( @Header("Authorization") token: String, @Body request: UpdateProfileRequest): UpdateProfileResponse
+
+    @Multipart
+    @PUT("/profile") suspend fun updateProfileWithImage(
+        @Header("Authorization") token: String,
+        @Part("name") name: RequestBody,
+        @Part("email") email: RequestBody,
+        @Part image: MultipartBody.Part): UpdateProfileResponse
 
     @POST("/predict")
     suspend fun predict( @Header("Authorization") token: String, @Body request: PredictionRequest): PredictionResponse

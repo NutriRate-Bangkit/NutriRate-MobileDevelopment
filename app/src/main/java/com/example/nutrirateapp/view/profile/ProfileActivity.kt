@@ -38,11 +38,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun setupMenuButtons() {
         binding.apply {
             tvEditProfile.setOnClickListener {
-                val dialog = EditProfileDialogFragment { newName ->
-                    tvName.text = newName
-                    Toast.makeText(this@ProfileActivity, "Profile Updated", Toast.LENGTH_SHORT).show()
-                }
-                dialog.show(supportFragmentManager, "EditProfileDialog")
+                EditProfileDialogFragment().show(supportFragmentManager, "EditProfileDialog")
             }
 
             tvChangePassword.setOnClickListener {
