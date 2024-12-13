@@ -1,5 +1,6 @@
 package com.example.nutrirateapp.view.grading
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nutrirateapp.data.model.OriginalInputs
 import com.example.nutrirateapp.databinding.ActivityGradingBinding
+import com.example.nutrirateapp.view.main.MainActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class GradingActivity : AppCompatActivity() {
@@ -20,6 +22,7 @@ class GradingActivity : AppCompatActivity() {
 
         setupBottomSheet()
         displayGradeAndInputs()
+        setupOkButton()
     }
 
     private fun setupBottomSheet() {
@@ -80,6 +83,16 @@ class GradingActivity : AppCompatActivity() {
             "D" -> Color.parseColor("#FF4500")  // Orange Red
             "E" -> Color.parseColor("#FF0000")  // Red
             else -> Color.BLACK
+        }
+    }
+
+    private fun setupOkButton() {
+        binding.okButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivity(intent)
+            finish()
         }
     }
 

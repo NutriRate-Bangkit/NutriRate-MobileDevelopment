@@ -47,9 +47,7 @@ class ProfileActivity : AppCompatActivity() {
             }
 
             tvDeleteAccount.setOnClickListener {
-                val dialog = DeleteAccountDialog { result ->
-                }
-                dialog.show(supportFragmentManager, "DeleteAccountDialog")
+                DeleteAccountDialog().show(supportFragmentManager, "DeleteAccountDialog")
             }
         }
     }

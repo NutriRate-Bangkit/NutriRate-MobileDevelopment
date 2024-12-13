@@ -33,6 +33,11 @@ class MainActivity : AppCompatActivity() {
         viewModel.getProfile()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getProfile()
+    }
+
     @OptIn(ExperimentalGetImage::class)
     private fun setupNavigation() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)

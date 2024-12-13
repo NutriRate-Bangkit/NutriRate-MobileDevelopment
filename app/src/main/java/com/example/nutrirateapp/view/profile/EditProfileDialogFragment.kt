@@ -1,20 +1,22 @@
 package com.example.nutrirateapp.view.profile
 
+import android.Manifest
 import android.app.Dialog
-import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.example.nutrirateapp.R
 import com.example.nutrirateapp.databinding.DialogEditProfileBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class EditProfileDialogFragment : DialogFragment() {
     private var _binding: DialogEditProfileBinding? = null
@@ -23,13 +25,18 @@ class EditProfileDialogFragment : DialogFragment() {
     private val viewModel: ProfileViewModel by activityViewModels()
     private var selectedImageUri: Uri? = null
 
-    private val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == android.app.Activity.RESULT_OK) {
-            result.data?.data?.let { uri ->
-                selectedImageUri = uri
-                binding.imgProfile.setImageURI(uri)
-            }
-        }
+    private val galleryLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        uri?.let {
+            selectedImageUri = it
+            Glide.with(requireContext())
+                .load(it)
+                .circleCrop()
+                .placeholder(R.drawable.img_user)
+                .error(R.drawable.img_user)
+                .into(binding.imgProfile)
+        } ?: Toast.makeText(requireContext(), "No image selected", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -39,6 +46,7 @@ class EditProfileDialogFragment : DialogFragment() {
 
         setupWindowAttributes(dialog)
         setupListeners()
+        setupObservers()
         loadCurrentProfile()
 
         return dialog
@@ -64,19 +72,84 @@ class EditProfileDialogFragment : DialogFragment() {
 
     private fun setupListeners() {
         with(binding) {
-            // Handle image selection
             cdvPhoto.setOnClickListener {
-                openImagePicker()
+                it.animate()
+                    .scaleX(0.9f)
+                    .scaleY(0.9f)
+                    .setDuration(100)
+                    .withEndAction {
+                        it.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(100)
+                            .start()
+                    }
+                    .start()
+
+                checkPermissionAndOpenGallery()
             }
 
-            // Handle Cancel Button
             btnCancel.setOnClickListener {
-                dismiss()
+                it.animate()
+                    .scaleX(0.9f)
+                    .scaleY(0.9f)
+                    .setDuration(100)
+                    .withEndAction {
+                        it.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(100)
+                            .start()
+
+                        dismiss()
+                    }
+                    .start()
             }
 
-            // Handle Save Button
             btnSave.setOnClickListener {
-                updateProfile()
+                it.animate()
+                    .scaleX(0.9f)
+                    .scaleY(0.9f)
+                    .setDuration(100)
+                    .withEndAction {
+                        it.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(100)
+                            .start()
+
+                        handleProfileUpdate()
+                    }
+                    .start()
+            }
+        }
+    }
+
+    private fun setupObservers() {
+        viewModel.isLoading.observe(this) { isLoading ->
+            binding.btnSave.isEnabled = !isLoading
+            binding.btnCancel.isEnabled = !isLoading
+        }
+
+        viewModel.updateProfileResult.observe(this) { event ->
+            event.getContentIfNotHandled()?.let { result ->
+                result.fold(
+                    onSuccess = { response ->
+                        Toast.makeText(context, response.message, Toast.LENGTH_SHORT).show()
+                        viewModel.getProfile()
+                        dismiss()
+                    },
+                    onFailure = { exception ->
+                        val errorMessage = when {
+                            exception.message?.contains("Format file tidak didukung") == true ->
+                                "Format file tidak didukung"
+                            exception.message?.contains("Token") == true ->
+                                "Sesi telah berakhir"
+                            else -> "Terjadi kesalahan pada server"
+                        }
+                        Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
+                    }
+                )
             }
         }
     }
@@ -89,7 +162,6 @@ class EditProfileDialogFragment : DialogFragment() {
                         etEditName.setText(profile.name)
                         etEditEmail.setText(profile.email)
 
-                        // Load current profile image
                         Glide.with(requireContext())
                             .load(profile.image)
                             .circleCrop()
@@ -99,47 +171,66 @@ class EditProfileDialogFragment : DialogFragment() {
                     }
                 },
                 onFailure = { exception ->
-                    Toast.makeText(context, "Failed to load profile: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Failed to load profile: ${exception.message}",
+                        Toast.LENGTH_SHORT).show()
                     dismiss()
-                }
-            )
-        }
-
-        // Observe loading state
-        viewModel.isLoading.observe(this) { isLoading ->
-            binding.btnSave.isEnabled = !isLoading
-        }
-
-        // Observe update result
-        viewModel.updateProfileResult.observe(this) { result ->
-            result.fold(
-                onSuccess = { response ->
-                    Toast.makeText(context, response.message, Toast.LENGTH_SHORT).show()
-                    viewModel.getProfile() // Refresh profile data
-                    dismiss()
-                },
-                onFailure = { exception ->
-                    Toast.makeText(context, exception.message, Toast.LENGTH_SHORT).show()
                 }
             )
         }
     }
 
-    private fun openImagePicker() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        getContent.launch(intent)
+    private fun checkPermissionAndOpenGallery() {
+        when {
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                openGallery()
+            }
+            shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
+                showPermissionExplanationDialog()
+            }
+            else -> {
+                requestPermissions(
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    REQUEST_CODE_PERMISSIONS
+                )
+            }
+        }
     }
 
-    private fun updateProfile() {
+    private fun showPermissionExplanationDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Permission Required")
+            .setMessage("Storage permission is required to select profile picture")
+            .setPositiveButton("Grant") { _, _ ->
+                requestPermissions(
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    REQUEST_CODE_PERMISSIONS
+                )
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun openGallery() {
+        galleryLauncher.launch("image/*")
+    }
+
+    private fun handleProfileUpdate() {
         val name = binding.etEditName.text.toString()
         val email = binding.etEditEmail.text.toString()
 
-        if (name.isEmpty() || email.isEmpty()) {
-            Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
+        if (name.isEmpty() && email.isEmpty() && selectedImageUri == null) {
+            Toast.makeText(context, "Tidak ada data yang diperbarui", Toast.LENGTH_SHORT).show()
             return
         }
 
-        viewModel.updateProfile(name, email, selectedImageUri)
+        viewModel.updateProfile(
+            name = if (name.isNotEmpty()) name else null,
+            email = if (email.isNotEmpty()) email else null,
+            imageUri = selectedImageUri
+        )
     }
 
     private fun convertDpToPx(dp: Int): Int {
@@ -147,8 +238,32 @@ class EditProfileDialogFragment : DialogFragment() {
         return (dp * density).toInt()
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            REQUEST_CODE_PERMISSIONS -> {
+                if (grantResults.isNotEmpty() &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    openGallery()
+                } else {
+                    Toast.makeText(context, "Permission denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
     override fun onDestroyView() {
-        super.onDestroyView()
+        viewModel.updateProfileResult.removeObservers(this)
+        viewModel.profileResult.removeObservers(this)
+        viewModel.isLoading.removeObservers(this)
         _binding = null
+        super.onDestroyView()
+    }
+
+    companion object {
+        private const val REQUEST_CODE_PERMISSIONS = 10
     }
 }

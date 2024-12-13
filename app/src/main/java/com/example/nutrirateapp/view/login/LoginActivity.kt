@@ -42,12 +42,9 @@ class LoginActivity : AppCompatActivity() {
         binding.tvBelumPunyaAkun.setOnClickListener {
             navigateToRegister()
         }
+
         binding.forgotPassword.setOnClickListener {
-            val forgotPasswordDialog = ForgotPasswordDialog {
-                // Callback saat tombol "Save" ditekan
-                Toast.makeText(this, "Proses lupa password dimulai", Toast.LENGTH_SHORT).show()
-            }
-            forgotPasswordDialog.show(supportFragmentManager, "ForgotPasswordDialog")
+            ForgotPasswordDialog().show(supportFragmentManager, "ForgotPasswordDialog")
         }
 
         val text = getString(R.string.login_selamatdatang)

@@ -1,30 +1,47 @@
 package com.example.nutrirateapp.data.model
 
-import com.google.gson.annotations.SerializedName
 
 data class ProfileResponse(
-    @SerializedName("name")
     val name: String,
-
-    @SerializedName("email")
     val email: String,
-
-    @SerializedName("image")
     val image: String?
 )
 
 data class UpdateProfileRequest(
-    @SerializedName("name")
     val name: String,
-
-    @SerializedName("email")
     val email: String,
-
-    @SerializedName("image")
     val image: String?
 )
 
 data class UpdateProfileResponse(
-    @SerializedName("message")
+    val message: String,
+    val user: UpdatedUserData
+)
+
+data class UpdatedUserData(
+    val name: String,
+    val email: String,
+    val image: String?
+)
+
+data class ChangePasswordRequest(
+    val currentPassword: String,
+    val newPassword: String
+)
+
+data class ChangePasswordResponse(
     val message: String
+)
+
+data class DeleteAccountResponse(
+    val message: String
+)
+
+data class ResetPasswordRequest(
+    val email: String
+)
+
+data class ResetPasswordResponse(
+    val message: String,
+    val email: String
 )

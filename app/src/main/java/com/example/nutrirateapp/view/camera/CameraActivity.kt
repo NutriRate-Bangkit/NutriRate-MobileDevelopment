@@ -225,14 +225,14 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun processNutritionText(detectedText: String) {
-        val servingSizeRegex = Regex("(?i)Takaran Saji\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val servingSizeRegex = Regex("(?i)Serving Size\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
         val proteinRegex = Regex("(?i)Protein\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val energyRegex = Regex("(?i)Energi\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val fatRegex = Regex("(?i)Lemak\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val saturatedFatRegex = Regex("(?i)Lemak Jenuh\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val sugarRegex = Regex("(?i)Gula\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val fiberRegex = Regex("(?i)Serat Pangan\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
-        val sodiumRegex = Regex("(?i)Natrium\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val energyRegex = Regex("(?i)Calories\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val fatRegex = Regex("(?i)Total Fat\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val saturatedFatRegex = Regex("(?i)Saturated Fat\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val sugarRegex = Regex("(?i)Total SUgars\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val fiberRegex = Regex("(?i)Dietary Fiber\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
+        val sodiumRegex = Regex("(?i)Sodium\\s*(\\d+(\\.\\d+)?)(\\s*[a-zA-Z]*)")
 
         val servinSize = servingSizeRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
         val protein = proteinRegex.find(detectedText)?.groups?.get(1)?.value ?: ""
@@ -253,7 +253,7 @@ class CameraActivity : AppCompatActivity() {
         intent.putExtra("FIBER", fiber)
         intent.putExtra("SODIUM", sodium)
         startActivity(intent)
-    }
+        }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
